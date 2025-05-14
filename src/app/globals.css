@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: "Pretendard", sans-serif;
+  --font-mono: "Pretendard", monospace;
+}
+
+/* Pretendard 폰트 로드 */
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+}
+
+body,
+html,
+:root {
+  height: 100%;
+  font-synthesis: style !important;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
