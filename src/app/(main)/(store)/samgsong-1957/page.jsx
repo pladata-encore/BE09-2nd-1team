@@ -1,8 +1,7 @@
 "use client"
-
-import Footer from "@/app/components/Footer";
-import Header from "@/app/components/Header";
-import KakaoMap from "../../../components/KakaoMap";
+import Header from "@/components/header/Header";
+import Footer from "@/components/Footer";
+import KakaoMap from "@/components/KakaoMap";
 
 
 export default function page() {
@@ -134,7 +133,13 @@ export default function page() {
         <div className="container px-4 mx-auto">
           <div className="max-w-4xl mx-auto">
             <h2 className="mb-8 text-3xl font-bold text-center">매장 안내</h2>
-            <KakaoMap />
+            <KakaoMap
+              latitude={35.8714354}
+              longitude={128.601445}
+              title="삼송빵집 1957"
+              address="대구 수성구 동대로 252번길 24"
+              phone="053-556-3030"
+            />
 
             <div className="p-6 mt-8 bg-white rounded-lg shadow-md">
               <h3 className="mb-4 text-xl font-bold">삼송빵집 1957 대구점</h3>
