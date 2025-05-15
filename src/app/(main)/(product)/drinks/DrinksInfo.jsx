@@ -1,12 +1,11 @@
 "use client";
-
 import React, { useState, useRef } from "react";
-import products from "./products.json";
-import ProductModal from "./ProductModal";
+import drinks from "./drinks.json";
+import DrinksModal from "./DrinksModal";
 
-export default function ProductInfo() {
+export default function DrinksInfo() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedDrink, setSelectedDrink] = useState(null);
   const hoverTimeout = useRef(null);
 
   const handleMouseEnter = (index) => {
@@ -34,12 +33,14 @@ export default function ProductInfo() {
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white">제품소개</span>
+          <span className="text-6xl font-bold text-white">
+            커피/음료/디저트
+          </span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
       <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
-        {products.map((product, index) => {
+        {drinks.map((drink, index) => {
           const isHovered = hoveredIndex === index;
           return (
             // 제품 카드
@@ -57,21 +58,21 @@ export default function ProductInfo() {
               }
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              onClick={() => setSelectedProduct(product)}
+              onClick={() => setSelectedDrink(drink)}
             >
               <h1
                 className={`mt-8 ml-5 text-3xl font-bold text-left 
-      ${isHovered ? "text-amber-200" : "text-[#512d1e]"}`}
+                  ${isHovered ? "text-amber-200" : "text-[#512d1e]"}`}
               >
-                {product.name}
+                {drink.name}
               </h1>
-              <h1
+              <h2
                 className={`ml-5 mt-2 text-2xl font-bold text-left 
-      ${isHovered ? "text-amber-200" : "text-[#512d1e] opacity-30"}`}
+                  ${isHovered ? "text-amber-200" :" text-[#512d1e] opacity-30"} `}
               >
-                {isHovered ? " " : product.engName.toUpperCase()}
-              </h1>
-              {/* 이미지와 설명을 flex로 감쌈 */}
+                {isHovered? " " : drink.engName.toUpperCase()}
+              </h2>
+              {/* 이미지를 flex로 감싸! */}
               <div
                 className={`m-5 flex flex-col ${
                   isHovered ? "justify-center items-center" : "items-start"
@@ -79,24 +80,27 @@ export default function ProductInfo() {
                 style={{ minHeight: "320px" }}
               >
                 <img
-                  src={isHovered ? product.imagedetail : product.image}
+                  src={isHovered ? drink.imagedetail : drink.image}
                   className={`transition-all duration-300 ${
                     isHovered ? "w-3/4 h-3/4" : "w-full h-10/12"
                   }`}
-                  alt={`${product.name} 이미지`}
+                  alt={`${drink.name} 이미지`}
                 />
-                {isHovered && (
-                  <p className="w-full mt-4 text-lg text-center text-white">
-                    {product.description}
-                  </p>
-                )}
               </div>
             </div>
           );
         })}
+        <div className="col-span-4 mb-5">
+          <p className="text-lg text-center">
+            음료는 현재 일부 매장에서만 운영되고 있습니다.
+          </p>
+        </div>
       </div>
-      {/* 제품 상세정보 모달달 */}
-      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      {/* 제품 상세정보 모달 */}
+      <DrinksModal
+        drink={selectedDrink}
+        onClose={() => setSelectedDrink(null)}
+      />
     </>
   );
 }

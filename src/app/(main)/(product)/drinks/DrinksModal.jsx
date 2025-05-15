@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function ProductModal({ product, onClose }) {
-  if (!product) return null;
+export default function DrinksModal({ drink, onClose }) {
+  if (!drink) return null;
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -28,19 +28,15 @@ export default function ProductModal({ product, onClose }) {
           &times;
         </button>
         <img
-          src={product.imagedetail}
-          alt={product.name}
+          src={drink.imagedetail}
+          alt={drink.name}
           className="object-contain w-full h-64 mb-4 rounded"
         />
         <h2 className="mb-2 text-3xl font-bold text-yellow-950">
-          {product.name}
+          {drink.name}
         </h2>
-        <p className="mb-2 text-black text-[18px]">{product.description}</p>
         <p className="text-2xl font-semibold text-yellow-900">
-        {product.price.toLocaleString()}원
-        </p>
-        <p className="text-lg font-semibold text-gray-700">
-          알레르기 정보 | {product.allergy}
+        {drink.price.toLocaleString()}원
         </p>
       </div>
     </div>

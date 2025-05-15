@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import products from "./products.json";
-import ProductModal from "./ProductModal";
+import products from "../product/products.json"; 
+import ProductModal from "../product/ProductModal";
 
-export default function ProductInfo() {
+export default function BakeryInfo() { // 
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
@@ -18,11 +18,13 @@ export default function ProductInfo() {
   };
 
   const handleMouseLeave = () => {
-    // 마우스가 떠난 후 약간의 딜레이
     hoverTimeout.current = setTimeout(() => {
       setHoveredIndex(null);
     }, 150);
   };
+
+  // 콘짜렐라부터 출력
+  const bakeryProducts = products.slice(8);
 
   return (
     <>
@@ -30,19 +32,18 @@ export default function ProductInfo() {
       <div className="relative w-full h-[650px]">
         <img
           src="/images/products/product_main.jpg"
-          alt="제품 소개"
+          alt="베이커리"
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white">제품소개</span>
+          <span className="text-6xl font-bold text-white">베이커리</span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
       <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
-        {products.map((product, index) => {
+        {bakeryProducts.map((product, index) => { 
           const isHovered = hoveredIndex === index;
           return (
-            // 제품 카드
             <div
               key={index}
               className={`mb-6 rounded-lg border bg-amber-50 transition-all duration-300 overflow-hidden relative`}
@@ -95,7 +96,7 @@ export default function ProductInfo() {
           );
         })}
       </div>
-      {/* 제품 상세정보 모달달 */}
+      {/* 제품 상세정보 모달 */}
       <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </>
   );
