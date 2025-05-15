@@ -1,5 +1,5 @@
-import ProductDetail from "./ProductDetail";
+import ProductInfo from "./ProductInfo";
 
 export default function Page() {
-  return <ProductDetail />;
+  return <ProductInfo />;
 }
