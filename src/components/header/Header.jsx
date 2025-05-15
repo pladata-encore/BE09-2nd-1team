@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import menuData from "./data/menuData";
+import { Button } from "../ui/button";
 
 export default function Header() {
   // 햄버거 메뉴 버튼 토글 상태 관리
@@ -22,9 +23,12 @@ export default function Header() {
     );
   };
 
-  // 햄버거 메뉴 버튼 토글 이벤트트
+  // 햄버거 메뉴 버튼 토글 이벤트
   const handleBtnToggle = () => {
     setIsBtnToggle((prev) => !prev);
+
+    // 메뉴버튼을 클릭할때마다 각 메뉴별 열림/닫힘 상태를 초기화
+    setMenuOpen(Array(menuData.length).fill(true));
   };
 
   // 전체 메뉴 링크 클릭 시 메뉴 닫는 이벤트 (1초 뒤 닫힘)
@@ -105,12 +109,12 @@ export default function Header() {
             <ul className="flex justify-around space-y-2 text-center">
               {menuData.map(({ title, items }, idx) => (
                 <li key={idx}>
-                  <button
-                    className="mb-[20px] text-3xl text-white font-['OneMobileTitle']"
+                  <Button
+                    className="mb-[20px] text-3xl bg-transparent cursor-pointer hover:bg-transparent text-white font-['OneMobileTitle']"
                     onClick={() => handleMenuToggle(idx)}
                   >
                     {title}
-                  </button>
+                  </Button>
                   <ul
                     className={`transition-all duration-500 ease-in-out overflow-hidden ${
                       menuOpen[idx] ? "h-[500px] opacity-100" : "h-0 opacity-0"
