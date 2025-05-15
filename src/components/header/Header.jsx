@@ -10,22 +10,16 @@ export default function Header() {
   const [isBtnToggle, setIsBtnToggle] = useState(false);
 
   // 전체메뉴 소메뉴 토글 상태 관리
-  // const [menuOpen, setMenuOpen] = useState(Array(menuData.length).fill(true));
-
-  // const handleMenuToggle = (index) => {
-  //   setMenuOpen((prev) => {
-  //     const updated = [...prev];
-  //     updated[index] = !updated[index];
-  //     return updated;
-  //   });
-  // };
-
+  // menuOpen: 각 메뉴별 열림/닫힘 상태를 저장하는 배열 (초기값: 모두 true → 열림)
   const [menuOpen, setMenuOpen] = useState(
-    () => Array(menuData.length).fill(true) // 초기 상태: 모두 열림
+    () => Array(menuData.length).fill(true) // menuData의 길이만큼 true로 초기화
   );
 
+  // 각 메뉴의 토글 버튼 클릭 시 해당 인덱스의 메뉴 상태만 반전
   const handleMenuToggle = (index) => {
-    setMenuOpen((prev) => prev.map((isOpen, i) => (i === index ? !isOpen : isOpen)));
+    setMenuOpen(
+      (prev) => prev.map((isOpen, i) => (i === index ? !isOpen : isOpen)) // 해당 index만 상태 변경
+    );
   };
 
   // 햄버거 메뉴 버튼 토글 이벤트트
@@ -33,9 +27,11 @@ export default function Header() {
     setIsBtnToggle((prev) => !prev);
   };
 
-  // 전체 메뉴 링크 클릭 시 메뉴 닫는 이벤트
+  // 전체 메뉴 링크 클릭 시 메뉴 닫는 이벤트 (1초 뒤 닫힘)
   const handleCloseMenu = () => {
-    setIsBtnToggle(false);
+    setTimeout(() => {
+      setIsBtnToggle(false);
+    }, 500);
   };
 
   return (
