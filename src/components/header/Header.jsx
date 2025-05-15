@@ -39,7 +39,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed h-[110px] w-[100%] max-w-[1600px] flex items-center justify-between bg-white z-50">
+    <header className="fixed h-[110px] w-[100%] max-w-[1600px] flex items-center justify-between bg-white">
       <div className="flex items-center h-full ml-4">
         <Link href="/">
           <Image src={"/icons/logo.png"} width={197} height={60} alt="삼송빵집 로고" />
