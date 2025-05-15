@@ -5,7 +5,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="bg-[#38312e] w-[100%] h-[250px] py-[3%] text-center">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center justify-center">
         <h1 className="mb-[30px]">
           <Image src={"/icons/f_logo.png"} width={240} height={45} alt="푸터 로고" />
         </h1>
@@ -14,6 +14,7 @@ export default function Footer() {
             <Link
               className="flex items-center gap-[5px]"
               href="https://www.instagram.com/samsong_bakery/?igshid=ZWQyN2ExYTkwZQ%3D%3D"
+              target="_blank"
             >
               <Image src="/icons/ft-insta.png" width={25} height={25} alt="인스타 로고" />
               <p className="text-[#7e7572] font-medium">삼송빵집</p>
@@ -23,25 +24,30 @@ export default function Footer() {
             <Link
               className="flex items-center gap-[5px]"
               href="https://www.instagram.com/samsong1957/?igshid=ZWQyN2ExYTkwZQ%3D%3D"
+              target="_blank"
             >
               <Image src="/icons/ft-insta.png" width={25} height={25} alt="인스타 로고" />
               <p className="text-[#7e7572] font-medium">삼송1957</p>
             </Link>
           </li>
           <li className="flex items-center">
-            <Link className="flex items-center gap-[5px]" href="https://www.youtube.com/@ssbnc">
+            <Link className="flex items-center gap-[5px]" href="https://www.youtube.com/@ssbnc" target="_blank">
               <Image src="/icons/ft-ytb.png" width={25} height={25} alt="유튜브 로고" />
               <p className="text-[#7e7572] font-medium">유튜브</p>
             </Link>
           </li>
           <li className="flex items-center">
-            <Link className="flex items-center gap-[5px]" href="https://blog.naver.com/samsongbakery1957">
+            <Link
+              className="flex items-center gap-[5px]"
+              href="https://blog.naver.com/samsongbakery1957"
+              target="_blank"
+            >
               <Image src="/icons/ft-blog.png" width={25} height={25} alt="블로그 로고" />
               <p className="text-[#7e7572] font-medium">블로그</p>
             </Link>
           </li>
           <li className="flex items-center">
-            <Link className="flex items-center gap-[5px]" href="https://pf.kakao.com/_cRxcxixl">
+            <Link className="flex items-center gap-[5px]" href="https://pf.kakao.com/_cRxcxixl" target="_blank">
               <Image src="/icons/ft-kakao.png" width={25} height={25} alt="카카오 로고" />
               <p className="text-[#7e7572] font-medium">카카오</p>
             </Link>
