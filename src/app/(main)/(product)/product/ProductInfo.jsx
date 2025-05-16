@@ -1,13 +1,30 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import products from "./products.json";
 import ProductModal from "./ProductModal";
+import gsap from "gsap";
 
 export default function ProductInfo() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
+  const textRef = useRef(null);
+  const PathName = usePathname();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.set(textRef.current, { opacity: 0, y: 50 }); // gsap 초기값 세팅
+      gsap.to(textRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    });
+    return () => ctx.revert(); // 컴포넌트 언마운트 시 gsap 초기값으로 되돌리기
+  }, [PathName]);
 
   const handleMouseEnter = (index) => {
     if (hoverTimeout.current) {
@@ -34,7 +51,9 @@ export default function ProductInfo() {
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white">제품소개</span>
+          <span className="text-6xl font-bold text-white" ref={textRef}>
+            제품소개
+          </span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
@@ -96,7 +115,10 @@ export default function ProductInfo() {
         })}
       </div>
       {/* 제품 상세정보 모달달 */}
-      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </>
   );
 }

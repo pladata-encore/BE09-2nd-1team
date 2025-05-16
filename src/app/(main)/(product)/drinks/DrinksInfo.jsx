@@ -1,12 +1,29 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import drinks from "./drinks.json";
 import DrinksModal from "./DrinksModal";
+import gsap from "gsap";
 
 export default function DrinksInfo() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedDrink, setSelectedDrink] = useState(null);
   const hoverTimeout = useRef(null);
+  const textRef = useRef(null);
+  const PathName = usePathname();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.set(textRef.current, { opacity: 0, y: 50 }); // gsap 초기값 세팅
+      gsap.to(textRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    });
+    return () => ctx.revert(); // 컴포넌트 언마운트 시 gsap 초기값으로 되돌리기
+  }, [PathName]);
 
   const handleMouseEnter = (index) => {
     if (hoverTimeout.current) {
@@ -33,7 +50,7 @@ export default function DrinksInfo() {
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white">
+          <span className="text-6xl font-bold text-white" ref={textRef}>
             커피/음료/디저트
           </span>
         </div>
@@ -68,9 +85,11 @@ export default function DrinksInfo() {
               </h1>
               <h2
                 className={`ml-5 mt-2 text-2xl font-bold text-left 
-                  ${isHovered ? "text-amber-200" :" text-[#512d1e] opacity-30"} `}
+                  ${
+                    isHovered ? "text-amber-200" : " text-[#512d1e] opacity-30"
+                  } `}
               >
-                {isHovered? " " : drink.engName.toUpperCase()}
+                {isHovered ? " " : drink.engName.toUpperCase()}
               </h2>
               {/* 이미지를 flex로 감싸! */}
               <div
