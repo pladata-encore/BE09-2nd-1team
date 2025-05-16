@@ -3,97 +3,119 @@
 import { useEffect, useRef } from "react";
 import Script from "next/script";
 
-export default function KakaoMap({ latitude, longitude, title, address, phone }) {
-  const mapRef = useRef(null);         // 지도 container DOM
-  const mapInstance = useRef(null);    // 지도 객체 참조
+export default function KakaoMap({ latitude, longitude, title, address, phone, markers }) {
+  const mapRef = useRef(null);
+  const mapInstance = useRef(null);
 
   const initializeMap = () => {
     if (!window.kakao || !mapRef.current) return;
 
     const kakao = window.kakao;
-    const container = mapRef.current;
-    const options = {
-      center: new kakao.maps.LatLng(latitude, longitude),
-      level: 3,
-    };
 
-    const map = new kakao.maps.Map(container, options);
-    mapInstance.current = map; // 지도 객체 저장
+    // 지도 중심: markers 있으면 첫 번째 마커 기준, 없으면 props 값 사용
+    const centerLat = markers?.[0]?.lat ?? latitude;
+    const centerLng = markers?.[0]?.lng ?? longitude;
 
-    // 마커 위치
-    const markerPosition = new kakao.maps.LatLng(latitude, longitude);
-
-    // ✅ 사용자 정의 마커 이미지
-    const markerImageSrc = "/icons/(store)/markerStar.png"; // public 폴더 기준
-    const markerSize = new kakao.maps.Size(24, 35);
-    const markerImage = new kakao.maps.MarkerImage(markerImageSrc, markerSize);
-
-    // ✅ 마커 생성
-    const marker = new kakao.maps.Marker({
-      position: markerPosition,
-      image: markerImage,
+    const map = new kakao.maps.Map(mapRef.current, {
+      center: new kakao.maps.LatLng(centerLat, centerLng),
+      level: 11,
     });
-    marker.setMap(map);
 
-    // ✅ 커스텀 오버레이 콘텐츠
-    const overlayContent = `
-      <div class="customoverlay" style="
-        position: relative;
-        bottom: 35px;
-        border-radius: 6px;
-        background: white;
-        border: 1px solid #ccc;
-        padding: 10px 15px;
-        font-size: 14px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        white-space: nowrap;
-      ">
-        <strong style="display: block; margin-bottom: 5px;">${title}</strong>
-        <div style="font-size: 12px; color: #555;">${address}</div>
-        <div style="font-size: 12px; color: #555;">${phone}</div>
-      </div>
-    `;
+    mapInstance.current = map;
 
-    // ✅ 커스텀 오버레이 생성
-    const customOverlay = new kakao.maps.CustomOverlay({
-      position: markerPosition,
-      content: overlayContent,
-      yAnchor: 1,
-    });
-    customOverlay.setMap(map);
+    // ✅ 여러 개의 마커 렌더링
+    if (markers && Array.isArray(markers)) {
+      markers.forEach((marker) => {
+        const markerPosition = new kakao.maps.LatLng(marker.lat, marker.lng);
+        const imageSrc = "/icons/(store)/markerStar.png";
+        const imageSize = new kakao.maps.Size(24, 35);
+        const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
-    // 지도 컨트롤 추가
-    const mapTypeControl = new kakao.maps.MapTypeControl();
-    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+        const mapMarker = new kakao.maps.Marker({
+          position: markerPosition,
+          image: markerImage,
+          title: marker.title,
+        });
 
-    const zoomControl = new kakao.maps.ZoomControl();
-    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-  };
+        mapMarker.setMap(map);
 
-  const moveToLocation = (lat, lng) => {
-    if (!mapInstance.current || !window.kakao) return;
-    const moveLatLon = new window.kakao.maps.LatLng(lat, lng);
-    mapInstance.current.panTo(moveLatLon);
-  };
+        const content = `
+          <div class="customoverlay" style="
+            position: relative;
+            bottom: 35px;
+            border-radius: 6px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            white-space: nowrap;
+          ">
+            <strong style="display: block; margin-bottom: 5px;">${marker.title}</strong>
+            <div style="font-size: 12px; color: #555;">${marker.address || ""}</div>
+            <div style="font-size: 12px; color: #555;">${marker.phone || ""}</div>
+          </div>`;
 
-  // 윈도우 리사이즈 대응
-  useEffect(() => {
-    const handleResize = () => {
-      if (mapInstance.current) {
-        mapInstance.current.relayout();
-      }
-    };
+        const overlay = new kakao.maps.CustomOverlay({
+          position: markerPosition,
+          content: content,
+          yAnchor: 1,
+        });
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+        kakao.maps.event.addListener(mapMarker, "click", () => {
+          overlay.setMap(map);
+        });
+      });
+    } else {
+      // ✅ 단일 마커만 표시
+      const markerPosition = new kakao.maps.LatLng(latitude, longitude);
+      const markerImage = new kakao.maps.MarkerImage(
+        "/icons/(store)/markerStar.png",
+        new kakao.maps.Size(24, 35)
+      );
 
-  // 지도 초기화
-  useEffect(() => {
-    if (window.kakao && window.kakao.maps) {
-      window.kakao.maps.load(initializeMap);
+      const marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage,
+      });
+
+      marker.setMap(map);
+
+      const overlayContent = `
+        <div class="customoverlay" style="
+          position: relative;
+          bottom: 35px;
+          border-radius: 6px;
+          background: white;
+          border: 1px solid #ccc;
+          padding: 10px 15px;
+          font-size: 14px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+          white-space: nowrap;
+        ">
+          <strong style="display: block; margin-bottom: 5px;">${title}</strong>
+          <div style="font-size: 12px; color: #555;">${address}</div>
+          <div style="font-size: 12px; color: #555;">${phone}</div>
+        </div>`;
+
+      const overlay = new kakao.maps.CustomOverlay({
+        position: markerPosition,
+        content: overlayContent,
+        yAnchor: 1,
+      });
+
+      overlay.setMap(map);
     }
-  }, []);
+
+    map.addControl(new kakao.maps.MapTypeControl(), kakao.maps.ControlPosition.TOPRIGHT);
+    map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
+  };
+
+  useEffect(() => {
+    if (window.kakao?.maps) {
+      window.kakao.maps.load(() => initializeMap());
+    }
+  }, [markers, latitude, longitude]);
 
   return (
     <div className="w-full space-y-4">
@@ -101,16 +123,13 @@ export default function KakaoMap({ latitude, longitude, title, address, phone })
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9fd453e56ef6d8617c10653062a578d3&autoload=false"
         strategy="beforeInteractive"
         onLoad={() => {
-          if (typeof window !== "undefined" && window.kakao?.maps) {
-            window.kakao.maps.load(initializeMap);
+          if (window.kakao?.maps) {
+            window.kakao.maps.load(() => initializeMap());
           }
         }}
       />
-
-      {/* 지도 컨테이너 */}
       <div
         ref={mapRef}
-        id="map"
         className="w-full h-[400px] rounded-md shadow-lg transition-all duration-500"
       />
     </div>
