@@ -8,6 +8,9 @@ module.exports = {
       },
       fontFamily: {
         pre: ["Pretendard", "sans-serif"],
+        cafe: ["Cafe24Decobox", "sans-serif"],
+        one: ["ONE-Mobile-Title"],
+        yajalnan: ["yg-jalnan"],
       },
     },
   },
