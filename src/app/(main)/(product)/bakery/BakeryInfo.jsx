@@ -86,6 +86,7 @@ const selectedProducts = [
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
               onClick={() => setSelectedProduct(product)}
+              data-aos="fade-up"
             >
               <h1
                 className={`mt-8 ml-5 text-3xl font-bold text-left 

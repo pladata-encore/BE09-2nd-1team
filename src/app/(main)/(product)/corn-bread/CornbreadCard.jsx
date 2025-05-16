@@ -92,7 +92,7 @@ export default function CornbreadCard() {
                     isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
                   }`}
                 >
-                  <p className="text-lg leading-relaxed text-white">
+                  <p className="text-lg leading-relaxed text-center text-white">
                     {product.description}
                   </p>
                 </div>
