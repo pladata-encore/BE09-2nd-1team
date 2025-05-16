@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import products from "../product/products.json"; 
+import products from "../product/products.json";
 import ProductModal from "../product/ProductModal";
 
-export default function BakeryInfo() { // 
+export default function BakeryInfo() {
+  //
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
@@ -41,7 +42,7 @@ export default function BakeryInfo() { //
       </div>
       {/* 제품 리스트 영역 */}
       <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
-        {bakeryProducts.map((product, index) => { 
+        {bakeryProducts.map((product, index) => {
           const isHovered = hoveredIndex === index;
           return (
             <div
@@ -97,7 +98,10 @@ export default function BakeryInfo() { //
         })}
       </div>
       {/* 제품 상세정보 모달 */}
-      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </>
   );
 }
