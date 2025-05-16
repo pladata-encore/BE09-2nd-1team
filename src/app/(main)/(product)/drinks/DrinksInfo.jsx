@@ -67,7 +67,7 @@ export default function DrinksInfo() {
                 {drink.name}
               </h1>
               <h2
-                className={`ml-5 mt-2 text-2xl font-bold text-left 
+                className={`ml-5 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
                   ${
                     isHovered ? "text-amber-200" : " text-[#512d1e] opacity-30"
                   } `}
