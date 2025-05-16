@@ -12,22 +12,29 @@ export default function ProductInfo() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
   const pathname = usePathname();
-  
+
   useEffect(() => {
-      // AOS 초기화
-      AOS.init({
-        duration: 800,
-        once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
-      });
-      AOS.refresh();
-    }, [pathname]);
+    // AOS 초기화
+    AOS.init({
+      duration: 800,
+      once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+    });
+    AOS.refresh();
+    return () => {
+      if (hoverTimeout.current) {
+        clearTimeout(hoverTimeout.current);
+      }
+    };
+  }, [pathname]);
 
   const handleMouseEnter = (index) => {
-    if (hoverTimeout.current) {
-      clearTimeout(hoverTimeout.current);
-      hoverTimeout.current = null;
+    if (hoveredIndex !== index) {
+      if (hoverTimeout.current) {
+        clearTimeout(hoverTimeout.current);
+        hoverTimeout.current = null;
+      }
+      setHoveredIndex(index);
     }
-    setHoveredIndex(index);
   };
 
   const handleMouseLeave = () => {
@@ -46,10 +53,11 @@ export default function ProductInfo() {
           alt="제품 소개"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
-          <span className="text-6xl font-bold text-white">
-            제품소개
-          </span>
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          data-aos="fade-up"
+        >
+          <span className="text-6xl font-bold text-white">제품소개</span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
@@ -73,7 +81,7 @@ export default function ProductInfo() {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
               onClick={() => setSelectedProduct(product)}
-              data-aos="fade-left"
+              data-aos="fade-up"
             >
               <h1
                 className={`mt-8 ml-5 text-3xl font-bold text-left 
@@ -102,7 +110,7 @@ export default function ProductInfo() {
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="w-full m-4 text-lg text-center text-white">
+                  <p className="m-4 text-lg text-center text-white ">
                     {product.description}
                   </p>
                 )}
@@ -112,10 +120,12 @@ export default function ProductInfo() {
         })}
       </div>
       {/* 제품 상세정보 모달 */}
-      <ProductModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-      />
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </>
   );
 }
