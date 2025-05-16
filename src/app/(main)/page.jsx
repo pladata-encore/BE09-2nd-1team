@@ -1,6 +1,5 @@
 import Section01 from "@/components/main/Section01";
-// import Section02 from "@/components/main/Section02";
-import Image from "next/image";
+import Section02 from "@/components/main/Section02";
 import React from "react";
 
 export default function MainPage() {
