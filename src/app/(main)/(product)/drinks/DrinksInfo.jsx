@@ -1,12 +1,25 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import drinks from "./drinks.json";
+import { usePathname } from "next/navigation";
 import DrinksModal from "./DrinksModal";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function DrinksInfo() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedDrink, setSelectedDrink] = useState(null);
   const hoverTimeout = useRef(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+      // AOS 초기화
+      AOS.init({
+        duration: 800,
+        once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+      });
+      AOS.refresh();
+    }, [pathname]);
 
   const handleMouseEnter = (index) => {
     if (hoverTimeout.current) {
@@ -32,7 +45,7 @@ export default function DrinksInfo() {
           alt="제품 소개"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
           <span className="text-6xl font-bold text-white">
             커피/음료/디저트
           </span>
