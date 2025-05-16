@@ -109,7 +109,7 @@ export default function Section02() {
           className="relative z-20"
         />
       </div>
-      <div className="absolute bottom-0 animate-[bounce_3s_infinite] left-[25%]">
+      <div className="absolute bottom-0 animate-[bounce_2.5s_infinite] left-[25%]">
         <Image
           src="/images/main/mpart1-img-l2.png"
           alt="moving-img-3"

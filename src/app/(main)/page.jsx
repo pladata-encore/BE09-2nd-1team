@@ -1,5 +1,6 @@
 import Section01 from "@/components/main/Section01";
 import Section02 from "@/components/main/Section02";
+import Section03 from "@/components/main/Section03";
 import React from "react";
 
 export default function MainPage() {
@@ -8,6 +9,7 @@ export default function MainPage() {
       <main className="flex w-full flex-col pt-[110px]">
         <Section01 />
         <Section02 />
+        <Section03 />
       </main>
     </div>
   );
