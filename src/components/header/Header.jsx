@@ -34,12 +34,12 @@ export default function Header() {
   // 전체 메뉴 링크 클릭 시 메뉴 닫는 이벤트 (1초 뒤 닫힘)
   const handleCloseMenu = () => {
     setTimeout(() => {
-      setIsBtnToggle(false);
+      setIsBtnToggle(false); 
     }, 500);
   };
 
   return (
-    <header className="fixed h-[110px] z-50 w-screen flex items-center justify-between bg-white">
+    <header className="fixed h-[110px] w-[100%] max-w-[1600px] flex items-center justify-between bg-white z-50">
       <div className="flex items-center h-full ml-4">
         <Link href="/">
           <Image src={"/icons/logo.png"} width={197} height={60} alt="삼송빵집 로고" />

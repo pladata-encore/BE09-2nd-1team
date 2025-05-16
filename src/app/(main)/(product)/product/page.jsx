@@ -1,5 +1,5 @@
-import React from "react";
+import ProductInfo from "./ProductInfo";
 
-export default function page() {
-  return <>page</>;
+export default function Page() {
+  return <ProductInfo />;
 }
