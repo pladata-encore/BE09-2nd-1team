@@ -1,31 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import products from "../product/products.json"; 
 import ProductModal from "../product/ProductModal";
-import { usePathname } from "next/navigation";
-import gsap from "gsap";
 
 export default function BakeryInfo() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
-  const textRef = useRef(null);
-  const PathName = usePathname();
   
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.set(textRef.current, { opacity: 0, y: 50 }); // gsap 초기값 세팅
-      gsap.to(textRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      });
-    });
-    return () => ctx.revert(); // 컴포넌트 언마운트 시 gsap 초기값으로 되돌리기
-  }, [PathName]);
-
   const handleMouseEnter = (index) => {
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
@@ -52,8 +35,8 @@ export default function BakeryInfo() {
           alt="베이커리"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white" ref={textRef}>베이커리</span>
+        <div className="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
+          <span className="text-6xl font-bold text-white" >베이커리</span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
