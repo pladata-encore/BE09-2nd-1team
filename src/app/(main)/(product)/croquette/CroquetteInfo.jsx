@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import CornbreadCard from "./CornbreadCard";
+import CroquetteCard from "./CroquetteCard";
 
-export default function CornBreadInfo() {
+export default function CroquetteInfo() {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -29,13 +29,15 @@ export default function CornBreadInfo() {
           className="absolute inset-0 flex items-center justify-center"
           data-aos="fade-up"
         >
-          <span className="text-6xl font-bold text-white">통옥수수빵</span>
+          <span className="text-6xl font-bold text-white">
+            오븐에 구운 고로케
+          </span>
         </div>
       </div>
       <div className="relative w-full h-[430px] mt-23">
         <img
-          src="/images/cornbread/cornbread-bg.png"
-          alt="통옥수수빵 소개 배경"
+          src="/images/croquette/croquette-bg.png"
+          alt="고로케 소개 배경"
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 flex flex-col items-left">
@@ -43,16 +45,15 @@ export default function CornBreadInfo() {
             className="ml-8 text-6xl font-bold mt-25 text-amber-300"
             data-aos="fade-up"
           >
-            통옥수수빵
+            오븐에 구운 고로케
           </span>
           <span
             className="mt-5 ml-8 text-xl text-white"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            한번 맛보면 헤어나올 수 없는 맛!
-            <br /> 통옥수수와 특제 소스로 맛을 낸, 중독성으로 유명한 삼송빵집의
-            베스트 메뉴
+            삼송빵집의 두번째 베스트 메뉴!! <br />
+            신선한 야채를 가득 넣은 고로케
           </span>
         </div>
       </div>
@@ -60,82 +61,86 @@ export default function CornBreadInfo() {
         {/* 이미지 영역 */}
         <div className="flex-shrink-0 ml-8" data-aos="fade-up">
           <img
-            src="/images/cornbread/cornbread-img.png"
-            alt="통옥수수빵 상세 소개"
+            src="/images/croquette/croquette-img.png"
+            alt="고로케 상세 소개"
             className="object-cover w-150 h-200 md-12"
           />
         </div>
         {/* 텍스트 영역 */}
-        <div className="flex flex-col flex-grow gap-12 mt-12 mb-12 mr-10 ml-15" >
+        <div className="flex flex-col flex-grow gap-12 mt-12 mb-12 mr-10 ml-15">
           {/* 1번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="200">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8">
               01
             </span>
             <div>
               <h2 className="mb-4 text-3xl font-bold text-black md:text-4xl">
-                소비자들이 붙인 별명으로 유명한 빵
+                건강에서 시작한 오븐에 구운 고로케
               </h2>
               <p className="text-lg leading-relaxed text-gray-500 md:text-xl">
-                통옥수수빵은 한번 맛본 사람이라면 계속 생각난다는 뜻으로
+                2000년 초 튀긴 고로케는 이미 시장에 많이 나와 있었지만
                 <br />
-                고객님들이 붙여준 '마약빵'이란 별명으로 더 유명합니다.
+                업장에서 깨끗한 기름을 유지하는 것은 어려운 점이 많았습니다.
                 <br />
-                따듯하고 맛있는 빵에 몰두한 진심이 고객에게 닿아
-                <br />
-                오늘의 삼송빵집이 있게한 대표 제품입니다.
+                당시 유행하던 ‘웰빙’ 컨셉에 맞춰 오븐에 구운 고로케를 개발하게
+                되었습니다.
               </p>
             </div>
           </div>
           {/* 2번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="300">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8">
               02
             </span>
             <div>
               <h2 className="mb-4 text-3xl font-bold text-black md:text-4xl">
-                고객 스스로 알린 통옥수수빵
+                황해도 만두에서 시작된 고로케
               </h2>
               <p className="text-lg leading-relaxed text-gray-500 md:text-xl">
-                본사 주도적 마케팅을 통해 만들어진 명성이 아닌
-                <br />
-                통옥수수빵을 맛보신 고객분들의 자발적인 입소문을 타고
-                <br />
-                블로그, SNS, 방송으로 퍼지게 되어 전국에서 이름난 빵이
-                되었습니다.
+                만두로 유명한 황해도 출신인 선대의 경험을 바탕으로 박성욱대표가
+                <br /> 개발했기 때문에 삼송빵집의 고로케는 얇은 빵 두께와 푸짐한
+                속재료로
+                <br /> 채우는 형태로 만들어지게 되었습니다.
               </p>
             </div>
           </div>
           {/* 3번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="400">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8 ">
               03
             </span>
             <div>
               <h2 className="mb-4 text-3xl font-bold text-black md:text-4xl">
-                어제와 오늘이 다른 통옥수수빵
+                다양한 맛을 제공하는 고로케
               </h2>
               <p className="text-lg leading-relaxed text-gray-500 md:text-xl">
-                10년 전 통옥수수빵과 현재의 통옥수수빵은 다릅니다.
+                10년 전 통옥수수빵과 현재의 통옥수수빵은 다릅니다. 다른 빵에
+                비해 속재료 사용이 자유롭기 때문에 <br />
+                현재 판매되고 있는 4종의 제품 외에도 닭갈비, 커리, 짜장 등
                 <br />
-                고객 여러분에게 늘 사랑받는 빵을 만들기 위해
-                <br />
-                매해 맛의 깊이를 더해왔기 때문입니다.
-                <br />
-                오늘도 삼송BNC 제빵 연구실에서는
-                <br />
-                통옥수수빵을 비롯한 모든 빵의 개량을 진행하고 있습니다.
+                다양한 제품들을 시도 하고 있습니다.
               </p>
             </div>
           </div>
         </div>
       </div>
-       {/* 제품 카드 영역 */}
+      {/* 제품 카드 영역 */}
       <div>
         {/* 제품 카드 */}
-        <CornbreadCard />
+        <CroquetteCard />
       </div>
-
     </>
   );
 }
