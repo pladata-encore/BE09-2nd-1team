@@ -7,16 +7,12 @@ import CardSection from "./CardSection";
 export default function StoreLocationSection() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const storesPerPage =10;
 
 
-  return (
-    <section className="py-16 bg-gray-50">
-      <div className="container px-4 mx-auto">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="mb-8 text-3xl font-bold text-center">매장 안내</h2>
+  const storeList = [
 
-          <KakaoMap
-          markers={[
             {
               title: "서울 청량리역사점",
               lat: 37.580178,
@@ -186,17 +182,46 @@ export default function StoreLocationSection() {
               lng: 128.601445,
             },
             
-          ]}
-        />
+          
+
+  ];
+
+    const filteredStores = storeList.filter((store) => {
+    const regionMatch = selectedRegion ? store.title.includes(selectedRegion) : true;
+    const searchMatch = store.title.includes(searchText) || store.address.includes(searchText);
+    return regionMatch && searchMatch;
+    
+  });
+
+  const indexOfLastStore = currentPage * storesPerPage;
+  const indexOfFirstStore = indexOfLastStore - storesPerPage;
+  const currentStores = filteredStores.slice(indexOfFirstStore, indexOfLastStore);
+  const totalPages = Math.ceil(filteredStores.length / storesPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };  
+
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="container px-4 mx-auto">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="mb-8 text-3xl font-bold text-center">매장 안내</h2>
+
+          <KakaoMap markers={filteredStores} />
 
           {/* 지역/검색 필터 */}
           <div className="flex items-center w-full mt-4 space-x-2 md:w-auto">
             <select
               className="px-4 py-2 text-sm border rounded"
               value={selectedRegion}
-              onChange={(e) => setSelectedRegion(e.target.value)}
+              onChange={(e) => {
+                setSelectedRegion(e.target.value);
+                setCurrentPage(1); // 필터 변경 시 페이지 초기화
+              }}
             >
-              <option>지역별 매장보기</option>
+              <option value="">지역별 매장보기</option>
               <option value="서울">서울</option>
               <option value="대전">대전</option>
               <option value="대구">대구</option>
@@ -219,13 +244,48 @@ export default function StoreLocationSection() {
                 placeholder="매장명을 입력해주세요"
                 className="w-full px-4 py-2 text-sm border rounded"
                 value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                  setCurrentPage(1); // 검색 시 페이지 초기화
+                }}
               />
               <button className="absolute text-gray-500 -translate-y-1/2 right-2 top-1/2">🔍</button>
             </div>
           </div>
-          <CardSection />
-  
+
+
+
+        {currentStores.map((store, index) => (
+            <CardSection key={index} store={store} />
+          ))}
+
+        <div className="flex justify-center mt-6 space-x-2">
+            <button
+              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
+            >
+              이전
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => handlePageChange(i + 1)}
+                className={`px-3 py-1 text-sm border rounded ${
+                  currentPage === i + 1 ? "bg-black text-white" : ""
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
+            >
+              다음
+            </button>
+          </div>
         </div>
       </div>
     </section>

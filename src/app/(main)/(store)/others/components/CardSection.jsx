@@ -1,6 +1,8 @@
 "use client";
 
-export default function CardSection(){
+export default function CardSection({store}){
+
+   if (!store) return null;
 
     return(
         <>
@@ -9,9 +11,9 @@ export default function CardSection(){
             <div className="flex flex-col w-full md:flex-row md:items-center md:space-x-6 md:w-auto">
               <img src="/icons/(store)/markerStar2.png" alt="매장" className="w-4 h-5" />
               <div className="mt-4 text-xl text-gray-700 md:mt-0 whitespace-nowrap">
-                <strong className="font-extrabold text-black">대구</strong>{" "}
-                <h1 className="font-bold">1957 토탈 베이커리</h1>
-                <p className="text-sm">대구광역시 수성구 동대로 252번길 24</p>
+                <strong className="font-extrabold text-black">{store.title.split(" ")[0]}</strong>{" "}
+                <h1 className="font-bold">{store.title.split(" ").slice(1).join(" ")}</h1>
+                <p className="text-sm">{store.address}</p>
               </div>
             </div>
             <div className="flex justify-center gap-4">
@@ -20,7 +22,7 @@ export default function CardSection(){
               <a href="#"><img src="/icons/(store)/ico7.png" alt="지도" className="w-12 h-12" /></a>
               <a href="#"><img src="/icons/(store)/ico3.png" alt="로드뷰" className="w-12 h-12" /></a>
             </div>
-            <div className="text-base font-semibold text-gray-800">053-768-3035</div>
+            <div className="text-base font-semibold text-gray-800">{store.phone}</div>
           </div>
         </>
     )
