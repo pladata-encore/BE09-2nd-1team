@@ -20,26 +20,49 @@ export default function KakaoMap({ latitude, longitude, title, address, phone })
     const map = new kakao.maps.Map(container, options);
     mapInstance.current = map; // 지도 객체 저장
 
-    // 마커 설정
+    // 마커 위치
     const markerPosition = new kakao.maps.LatLng(latitude, longitude);
-    const marker = new kakao.maps.Marker({ position: markerPosition });
+
+    // ✅ 사용자 정의 마커 이미지
+    const markerImageSrc = "/icons/(store)/markerStar.png"; // public 폴더 기준
+    const markerSize = new kakao.maps.Size(24, 35);
+    const markerImage = new kakao.maps.MarkerImage(markerImageSrc, markerSize);
+
+    // ✅ 마커 생성
+    const marker = new kakao.maps.Marker({
+      position: markerPosition,
+      image: markerImage,
+    });
     marker.setMap(map);
 
-    // 인포윈도우
-    const iwContent = `
-      <div style="padding:10px; width:220px;">
-        <strong style="font-size:14px;">${title}</strong><br/>
-        <span style="font-size:12px;">${address}</span><br/>
-        <span style="font-size:12px;">${phone}</span>
+    // ✅ 커스텀 오버레이 콘텐츠
+    const overlayContent = `
+      <div class="customoverlay" style="
+        position: relative;
+        bottom: 35px;
+        border-radius: 6px;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        font-size: 14px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        white-space: nowrap;
+      ">
+        <strong style="display: block; margin-bottom: 5px;">${title}</strong>
+        <div style="font-size: 12px; color: #555;">${address}</div>
+        <div style="font-size: 12px; color: #555;">${phone}</div>
       </div>
     `;
-    const infowindow = new kakao.maps.InfoWindow({
-      content: iwContent,
-      removable: true,
-    });
-    infowindow.open(map, marker);
 
-    // 컨트롤 추가
+    // ✅ 커스텀 오버레이 생성
+    const customOverlay = new kakao.maps.CustomOverlay({
+      position: markerPosition,
+      content: overlayContent,
+      yAnchor: 1,
+    });
+    customOverlay.setMap(map);
+
+    // 지도 컨트롤 추가
     const mapTypeControl = new kakao.maps.MapTypeControl();
     map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
@@ -53,7 +76,7 @@ export default function KakaoMap({ latitude, longitude, title, address, phone })
     mapInstance.current.panTo(moveLatLon);
   };
 
-  // ✅ 크기 변경 대응 (윈도우 리사이즈 시 map.relayout 호출)
+  // 윈도우 리사이즈 대응
   useEffect(() => {
     const handleResize = () => {
       if (mapInstance.current) {
@@ -90,22 +113,6 @@ export default function KakaoMap({ latitude, longitude, title, address, phone })
         id="map"
         className="w-full h-[400px] rounded-md shadow-lg transition-all duration-500"
       />
-
-      {/* 지도 이동 버튼 예시 */}
-      <div className="flex space-x-2">
-        <button
-          onClick={() => moveToLocation(37.5665, 126.9780)} // 서울시청
-          className="px-4 py-2 text-white bg-blue-500 rounded-md"
-        >
-          서울시청으로 이동
-        </button>
-        <button
-          onClick={() => moveToLocation(latitude, longitude)}
-          className="px-4 py-2 text-white bg-green-600 rounded-md"
-        >
-          원래 위치로 이동
-        </button>
-      </div>
     </div>
   );
 }
