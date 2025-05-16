@@ -14,6 +14,7 @@ import "aos/dist/aos.css";
 SwiperCore.use([Autoplay, EffectFade, Pagination]);
 
 export default function Section01() {
+  // 슬라이드 이미지
   const slideItems = [
     {
       id: 1,

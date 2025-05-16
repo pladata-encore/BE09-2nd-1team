@@ -171,8 +171,55 @@ html,
 .swiper-pagination-bullet-active.custom-bullet {
   @apply text-black bg-white;
 }
+/* Swiper 커스텀 화살표 */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+  background-image: url("/icons/(store)/slider-arrows.png");
+  background-size: 64px 32px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: transparent; /* Swiper 기본 텍스트 숨김 */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 왼쪽 화살표 */
+.swiper-button-prev {
+  background-position: left center;
+  left: 0;
+}
+
+/* 오른쪽 화살표 */
+.swiper-button-next {
+  background-position: right center;
+  right: 0;
+}
+
+/* Swiper의 기본 화살표 아이콘 완전 제거 (우선순위 높임) */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+}
+
+
+
 @layer utilities {
   .text-shadow-soft {
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
   }
+}
+
+.perspective {
+  perspective: 1000px;
+}
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }

@@ -1,0 +1,40 @@
+"use client";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import bestCardItems from "../data/Sec4product";
+import FlipCard from "./FlipCard";
+
+export default function Sec4best() {
+  return (
+    <div className="relative pb-[100px]">
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        loop
+        navigation={{
+          nextEl: ".swiper-button-next", // 다음 버튼
+          prevEl: ".swiper-button-prev", // 이전 버튼
+        }}
+        modules={[Navigation]}
+        className="pb-[30px]"
+      >
+        {bestCardItems.map((item) => (
+          <SwiperSlide key={item.id}>
+            <FlipCard
+              breadFrontImg={item.frontImgSrc}
+              breadBackImg={item.backImgSrc || "/images/main/menu1-img1.png"} // back 이미지 없을 경우 기본값
+              titleKo={item.title_ko}
+              titleEn={item.title_en}
+              backContent={item.backContent || "설명이 준비 중입니다."}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="flex justify-center mt-[40px] ">
+        <div className="bg-[url('/images/main/arrow_prev.png')] swiper-button-prev h-[26px] w-[67px] border-r-1"></div>
+        <div className="bg-[url('/images/main/arrow_next.png')] swiper-button-next h-[26px] w-[67px]"></div>
+      </div>
+    </div>
+  );
+}
