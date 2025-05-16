@@ -1,10 +1,15 @@
+import Section01 from "@/components/main/Section01";
+import Section02 from "@/components/main/Section02";
 import Image from "next/image";
 import React from "react";
 
 export default function MainPage() {
   return (
-    <main className="h-[100vh]">
-      <Image src={"/images/m_visual1.jpg"} width={0} height={0} alt="메인이미지-1" />
-    </main>
+    <div className="w-full min-h-screen overflow-x-hidden text-base">
+      <main className="flex w-full flex-col pt-[110px]">
+        <Section01 />
+        <Section02 />
+      </main>
+    </div>
   );
 }
