@@ -1,6 +1,10 @@
 "use client";
 
+<<<<<<< HEAD
+import React, { useState, useRef } from "react";
+=======
 import React, { useState, useEffect, useRef } from "react";
+>>>>>>> develop
 import products from "../product/products.json";
 import ProductModal from "../product/ProductModal";
 import AOS from "aos";
@@ -8,6 +12,10 @@ import "aos/dist/aos.css";
 import { usePathname } from "next/navigation";
 
 export default function BakeryInfo() {
+<<<<<<< HEAD
+  //
+=======
+>>>>>>> develop
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const hoverTimeout = useRef(null);
@@ -68,7 +76,11 @@ const selectedProducts = [
       </div>
       {/* 제품 리스트 영역 */}
       <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
+<<<<<<< HEAD
+        {bakeryProducts.map((product, index) => {
+=======
         {selectedProducts.map((product, index) => {
+>>>>>>> develop
           const isHovered = hoveredIndex === index;
           return (
             <div
