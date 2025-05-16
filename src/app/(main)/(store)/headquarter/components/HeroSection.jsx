@@ -14,13 +14,7 @@ export default function(){
                   priority
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <Image
-                    src="/images/logo.png"
-                    alt="삼송빵집 로고"
-                    width={180}
-                    height={60}
-                    className="mb-4"
-                  />
+                  
                   <h1 className="text-5xl font-bold text-white">삼송빵집 본점</h1>
                 </div>
               </section>
