@@ -19,9 +19,13 @@ export default function StoreLocationSection() {
       <div className="container px-4 mx-auto mt-10">
         <div className="max-w-5xl mx-auto">
           {/* 검색 영역 */}
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <select className="px-4 py-2 text-sm border rounded">
-              <option>지역별 매장보기</option>
+          <div className="flex flex-wrap items-center gap-2 mt-4">
+            {/* 지역 필터 - 갈색 버튼 */}
+            <select
+              className="px-6 py-2 text-sm text-white bg-[#532E1C] border border-[#532E1C] rounded"
+              defaultValue=""
+            >
+              <option value="">지역별 매장보기</option>
               <option value="서울">서울</option>
               <option value="대전">대전</option>
               <option value="대구">대구</option>
@@ -39,18 +43,23 @@ export default function StoreLocationSection() {
               <option value="제주">제주</option>
             </select>
 
-            <div className="relative w-full md:w-[200px]">
+            {/* 검색 필터 박스 - 매장명 + input + 아이콘 */}
+            <div className="flex items-center border border-gray-300 rounded overflow-hidden w-full md:w-auto">
+              <select className="px-3 py-2 text-sm bg-white border-r border-gray-300 outline-none">
+                <option value="store">매장명</option>
+              </select>
               <input
                 type="text"
-                placeholder="매장명을 입력해주세요"
-                className="w-full px-4 py-2 text-sm border rounded"
+                placeholder="검색어를 입력해주세요"
+                className="px-4 py-2 text-sm w-full md:w-[200px] focus:outline-none"
               />
-              <button className="absolute text-gray-500 -translate-y-1/2 right-2 top-1/2">
-                🔍
+              <button className="px-4 text-gray-600 hover:text-black">
+                <i className="fa fa-search" aria-hidden="true"></i>
               </button>
             </div>
           </div>
 
+          
           {/* 매장 정보 카드 */}
           <div className="flex flex-col items-center justify-between p-4 mt-6 space-y-4 bg-white rounded-lg shadow-md md:flex-row md:space-y-0">
             {/* 매장명 */}

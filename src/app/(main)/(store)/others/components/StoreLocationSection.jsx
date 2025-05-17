@@ -218,7 +218,7 @@ export default function StoreLocationSection() {
           {/* 지역/검색 필터 */}
           <div className="flex items-center w-full mt-4 space-x-2 md:w-auto">
             <select
-              className="px-4 py-2 text-sm border rounded"
+              className="px-12 py-2 text-sm text-white bg-[#532E1C] border border-[#532E1C] rounded"
               value={selectedRegion}
               onChange={(e) => {
                 setSelectedRegion(e.target.value);
@@ -242,19 +242,32 @@ export default function StoreLocationSection() {
               <option value="전남">전남</option>
               <option value="제주">제주</option>
             </select>
-            <div className="relative w-full md:w-[200px]">
+            
+            {/* 검색 통합 박스 */}
+            <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+              {/* 검색 조건 선택 (매장명) */}
+              <select className="px-3 py-2 text-sm bg-white border-r border-gray-300 outline-none">
+                <option value="store">매장명</option>
+              </select>
+
+              {/* 검색어 입력 */}
               <input
                 type="text"
-                placeholder="매장명을 입력해주세요"
-                className="w-full px-4 py-2 text-sm border rounded"
+                placeholder="검색어를 입력해주세요"
+                className="px-4 py-2 text-sm w-[200px] focus:outline-none"
                 value={searchText}
                 onChange={(e) => {
                   setSearchText(e.target.value);
-                  setCurrentPage(1); // 검색 시 페이지 초기화
+                  setCurrentPage(1);
                 }}
               />
-              <button className="absolute text-gray-500 -translate-y-1/2 right-2 top-1/2">
-                🔍
+
+              {/* 검색 아이콘 버튼 */}
+              <button
+                type="submit"
+                className="px-4 text-gray-600 hover:text-black"
+              >
+                <i className="fa fa-search" aria-hidden="true"></i>
               </button>
             </div>
           </div>
