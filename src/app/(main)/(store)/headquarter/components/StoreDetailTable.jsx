@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 
 export default function StoreDetailTable({
   title = "삼송빵집 본점",
@@ -10,38 +9,50 @@ export default function StoreDetailTable({
   other = "제품 소진 시 조기 마감",
 }) {
   return (
-    <section className="w-full max-w-4xl py-8 mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-3xl font-bold text-[#5C2E14]">{title}</h2>
+    <section className="w-full max-w-4xl mx-auto mb-10">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-3xl font-bold text-black">{title}</h2>
         <div className="text-3xl font-light text-gray-300">Samsong Bakery</div>
       </div>
 
-      <div className="border-t border-b border-gray-200">
-        <div className="grid grid-cols-[150px_1fr] border-b border-gray-200">
-          <div className="px-4 py-5 font-medium text-gray-700">대표번호</div>
-          <div className="px-4 py-5">{phone}</div>
+      <hr className="border-t border-gray-200 mb-4" />
+
+      <div className="space-y-6">
+        <div className="flex">
+          <div className="w-32 font-medium text-gray-700">대표번호</div>
+          <div>{phone}</div>
         </div>
 
-        <div className="grid grid-cols-[150px_1fr] border-b border-gray-200">
-          <div className="px-4 py-5 font-medium text-gray-700">주소</div>
-          <div className="px-4 py-5">{address}</div>
+        <hr className="border-t border-gray-200" />
+
+        <div className="flex">
+          <div className="w-32 font-medium text-gray-700">주소</div>
+          <div>{address}</div>
         </div>
 
-        <div className="grid grid-cols-[150px_1fr] border-b border-gray-200">
-          <div className="px-4 py-5 font-medium text-gray-700">영업시간</div>
-          <div className="px-4 py-5">{hours}</div>
+        <hr className="border-t border-gray-200" />
+
+        <div className="flex">
+          <div className="w-32 font-medium text-gray-700">영업시간</div>
+          <div>{hours}</div>
         </div>
 
-        <div className="grid grid-cols-[150px_1fr] border-b border-gray-200">
-          <div className="px-4 py-5 font-medium text-gray-700">주차여부</div>
-          <div className="px-4 py-5">{parking}</div>
+        <hr className="border-t border-gray-200" />
+
+        <div className="flex">
+          <div className="w-32 font-medium text-gray-700">주차여부</div>
+          <div>{parking}</div>
         </div>
 
-        <div className="grid grid-cols-[150px_1fr]">
-          <div className="px-4 py-5 font-medium text-gray-700">기타</div>
-          <div className="px-4 py-5">{other}</div>
+        <hr className="border-t border-gray-200" />
+
+        <div className="flex">
+          <div className="w-32 font-medium text-gray-700">기타</div>
+          <div>{other}</div>
         </div>
       </div>
+
+      <hr className="border-t border-gray-200 mt-6" />
     </section>
   )
 }
