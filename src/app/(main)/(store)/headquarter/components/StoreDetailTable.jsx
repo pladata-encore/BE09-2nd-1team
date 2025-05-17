@@ -5,54 +5,46 @@ export default function StoreDetailTable({
   phone = "053) 254-4064",
   address = "대구시 중구 중앙대로 397 (동성로3가 1-3)",
   hours = "AM 08:00 ~ PM 22:00",
-  parking = "주차불가 지역 (중앙로 대중교통 전용지구)",
+  parking = "주차불가 지역\n(중앙로 대중교통 전용지구)",
   other = "제품 소진 시 조기 마감",
 }) {
+  const rows = [
+    { label: "대표번호", value: phone },
+    { label: "주소", value: address },
+    { label: "영업시간", value: hours },
+    { label: "주차여부", value: parking },
+    { label: "기타", value: other },
+  ];
+
   return (
-    <section className="w-full max-w-4xl mx-auto mb-10">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-3xl font-bold text-black">{title}</h2>
-        <div className="text-3xl font-light text-gray-300">Samsong Bakery</div>
+    <section className="w-full max-w-5xl mx-auto pt-10 pb-12 px-4 relative mt-20">
+      {/* Samsong Bakery (styled like ::before) */}
+      <div className="absolute top-12 right-5 text-[30px] font-serif text-gray-500 opacity-20 pointer-events-none select-none">
+        Samsong Bakery
       </div>
 
-      <hr className="border-t border-gray-200 mb-4" />
-
-      <div className="space-y-6">
-        <div className="flex">
-          <div className="w-32 font-medium text-gray-700">대표번호</div>
-          <div>{phone}</div>
-        </div>
-
-        <hr className="border-t border-gray-200" />
-
-        <div className="flex">
-          <div className="w-32 font-medium text-gray-700">주소</div>
-          <div>{address}</div>
-        </div>
-
-        <hr className="border-t border-gray-200" />
-
-        <div className="flex">
-          <div className="w-32 font-medium text-gray-700">영업시간</div>
-          <div>{hours}</div>
-        </div>
-
-        <hr className="border-t border-gray-200" />
-
-        <div className="flex">
-          <div className="w-32 font-medium text-gray-700">주차여부</div>
-          <div>{parking}</div>
-        </div>
-
-        <hr className="border-t border-gray-200" />
-
-        <div className="flex">
-          <div className="w-32 font-medium text-gray-700">기타</div>
-          <div>{other}</div>
-        </div>
+      {/* Title */}
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-4xl font-medium text-black">{title}</h2>
       </div>
 
-      <hr className="border-t border-gray-200 mt-6" />
+      <hr className="border-1 border-black mb-5" />
+
+      {/* Info Rows */}
+      <div className="space-y-6 text-sm sm:text-base">
+        {rows.map((row, idx) => (
+          <div key={idx}>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+              <div className="w-32 font-semibold text-gray-700 shrink-0">
+                {row.label}
+              </div>
+              <div className="whitespace-pre-line text-gray-800">{row.value}</div>
+            </div>
+            <hr className="mt-4 border-t border-gray-200" />
+          </div>
+        ))}
+      </div>
+       <hr className="border-1 border-black mb-9" />
     </section>
-  )
+  );
 }

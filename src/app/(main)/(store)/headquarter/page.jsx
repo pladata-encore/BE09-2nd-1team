@@ -98,7 +98,7 @@ export default function Page() {
           >
             {images.map((src, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-full h-20 cursor-pointer rounded overflow-hidden border hover:border-[#5C2E14]">
+                <div className="relative w-full h-20 cursor-pointer rounded overflow-hidden border hover:border-[#5C2E14] ">
                   <Image src={src || "/placeholder.svg"} alt={`썸네일 ${index + 1}`} fill className="object-cover" />
                 </div>
               </SwiperSlide>
