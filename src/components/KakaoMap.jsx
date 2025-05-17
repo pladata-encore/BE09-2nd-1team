@@ -129,9 +129,9 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
         }}
       />
       <div
-        ref={mapRef}
-        className="w-full h-[400px] rounded-md shadow-lg transition-all duration-500"
-      />
+          ref={mapRef}
+          className="w-full h-[70vh] md:h-[75vh] lg:h-[80vh] rounded-md shadow-lg"
+        />
     </div>
   );
 }

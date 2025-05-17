@@ -204,13 +204,17 @@ export default function StoreLocationSection() {
 
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container px-4 mx-auto">
-        <div className="max-w-4xl mx-auto">
+    <section className="bg-gray-50">
+      {/* 지도는 화면에 꽉 차게 보여줌 */}
+      <div className="w-full">
+        <KakaoMap markers={filteredStores} />
+      </div>
+  
+      {/* 매장 검색 및 리스트 정보는 내부 박스로 정리 */}
+      <div className="container px-4 mx-auto mt-10">
+        <div className="max-w-5xl mx-auto">
           <h2 className="mb-8 text-3xl font-bold text-center">매장 안내</h2>
-
-          <KakaoMap markers={filteredStores} />
-
+  
           {/* 지역/검색 필터 */}
           <div className="flex items-center w-full mt-4 space-x-2 md:w-auto">
             <select
@@ -249,17 +253,19 @@ export default function StoreLocationSection() {
                   setCurrentPage(1); // 검색 시 페이지 초기화
                 }}
               />
-              <button className="absolute text-gray-500 -translate-y-1/2 right-2 top-1/2">🔍</button>
+              <button className="absolute text-gray-500 -translate-y-1/2 right-2 top-1/2">
+                🔍
+              </button>
             </div>
           </div>
-
-
-
-        {currentStores.map((store, index) => (
+  
+          {/* 매장 카드 리스트 */}
+          {currentStores.map((store, index) => (
             <CardSection key={index} store={store} />
           ))}
-
-        <div className="flex justify-center mt-6 space-x-2">
+  
+          {/* 페이지네이션 */}
+          <div className="flex justify-center mt-6 space-x-2">
             <button
               onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
               disabled={currentPage === 1}
@@ -289,5 +295,5 @@ export default function StoreLocationSection() {
         </div>
       </div>
     </section>
-  );
+  );  
 }
