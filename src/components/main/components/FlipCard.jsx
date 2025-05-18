@@ -1,3 +1,5 @@
+import "../style/flipCard.css";
+
 export default function FlipCard({ breadFrontImg, titleKo, titleEn, backContent, breadBackImg }) {
   return (
     <div className="w-[360px] h-[412px] perspective mb-[20px]">
