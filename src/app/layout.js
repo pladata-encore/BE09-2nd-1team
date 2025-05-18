@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header/Header";
 import Footer from "../components/Footer";
+import Submenu from "@/components/subMenu/Submenu";
 
 export const metadata = {
   title: "삼송빵집",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body>
         <div id="wrap">
           <Header />
+          <Submenu />
           {children}
           <Footer />
         </div>
