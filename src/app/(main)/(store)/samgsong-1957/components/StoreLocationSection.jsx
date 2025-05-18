@@ -3,10 +3,10 @@ import KakaoMap from "@/components/KakaoMap";
 
 export default function StoreLocationSection() {
   return (
-    <section className="bg-gray-50"
+    <section className="bg-gray-50 mb-24"
              data-aos="fade-up"
              data-aos-delay="100"
-             data-aos-duration="800">
+    data-aos-duration="800">
       {/* 지도를 화면에 꽉 차게 보여줌 */}
       <div className="w-full">
         <KakaoMap
@@ -18,7 +18,7 @@ export default function StoreLocationSection() {
         />
       </div>
 
-      {/* 아래 정보 영역은 최대 너비 제한 적용 */}
+   
       <div className="container px-4 mx-auto mt-10">
         <div className="max-w-5xl mx-auto">
           {/* 검색 영역 */}
@@ -110,7 +110,6 @@ export default function StoreLocationSection() {
             </div>
 
             {/* 전화번호 */}
-           {/* 전화 링크 */}
             <div className="text-base font-semibold text-gray-800">
               <a
                 href="tel:053-768-3035"
