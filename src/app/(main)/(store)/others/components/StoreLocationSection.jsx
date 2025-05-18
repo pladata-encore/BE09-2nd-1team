@@ -509,33 +509,48 @@ export default function StoreLocationSection() {
           ))}
   
           {/* 페이지네이션 */}
-          <div className="flex justify-center mt-6 space-x-2">
-            <button
-              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
-            >
-              이전
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => (
+          <div className="mt-10 mb-12 flex justify-start">
+            <nav className="flex space-x-2">
+              {/* 처음으로 이동 */}
               <button
-                key={i + 1}
-                onClick={() => handlePageChange(i + 1)}
-                className={`px-3 py-1 text-sm border rounded ${
-                  currentPage === i + 1 ? "bg-black text-white" : ""
-                }`}
+                onClick={() => handlePageChange(1)}
+                disabled={currentPage === 1}
+                className="w-10 h-10 flex items-center justify-center rounded bg-gray-100 text-gray-500 hover:bg-gray-200 disabled:opacity-50"
               >
-                {i + 1}
+                «
               </button>
-            ))}
-            <button
-              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
-            >
-              다음
-            </button>
+
+              {/* 페이지 번호 */}
+              {Array.from({ length: totalPages }, (_, i) => {
+                const page = i + 1;
+                const isActive = currentPage === page;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`w-10 h-10 flex items-center justify-center rounded transition
+                      ${
+                        isActive
+                          ? "bg-gray-400 text-white font-bold"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+
+              {/* 마지막으로 이동 */}
+              <button
+                onClick={() => handlePageChange(totalPages)}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 flex items-center justify-center rounded bg-gray-100 text-gray-500 hover:bg-gray-200 disabled:opacity-50"
+              >
+                »
+              </button>
+            </nav>
           </div>
+
         </div>
       </div>
     </section>
