@@ -1,18 +1,20 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import Script from "next/script";
 
-export default function KakaoMap({ latitude, longitude, title, address, phone, markers }) {
+const KakaoMap = forwardRef(function KakaoMap(
+  { latitude, longitude, title, address, phone, markers },
+  ref
+) {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
 
+  // 지도 초기화
   const initializeMap = () => {
     if (!window.kakao || !mapRef.current) return;
 
     const kakao = window.kakao;
-
-    // 지도 중심: markers 있으면 첫 번째 마커 기준, 없으면 props 값 사용
     const centerLat = markers?.[0]?.lat ?? latitude;
     const centerLng = markers?.[0]?.lng ?? longitude;
 
@@ -23,7 +25,6 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
 
     mapInstance.current = map;
 
-    // ✅ 여러 개의 마커 렌더링
     if (markers && Array.isArray(markers)) {
       markers.forEach((marker) => {
         const markerPosition = new kakao.maps.LatLng(marker.lat, marker.lng);
@@ -58,7 +59,7 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
 
         const overlay = new kakao.maps.CustomOverlay({
           position: markerPosition,
-          content: content,
+          content,
           yAnchor: 1,
         });
 
@@ -67,7 +68,6 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
         });
       });
     } else {
-      // ✅ 단일 마커만 표시
       const markerPosition = new kakao.maps.LatLng(latitude, longitude);
       const markerImage = new kakao.maps.MarkerImage(
         "/icons/(store)/markerStar.png",
@@ -111,6 +111,18 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
     map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
   };
 
+
+  useImperativeHandle(ref, () => ({
+    resetBounds: () => {
+      if (!mapInstance.current || !markers?.length) return;
+      const bounds = new kakao.maps.LatLngBounds();
+      markers.forEach((marker) => {
+        bounds.extend(new kakao.maps.LatLng(marker.lat, marker.lng));
+      });
+      mapInstance.current.setBounds(bounds);
+    },
+  }));
+
   useEffect(() => {
     if (window.kakao?.maps) {
       window.kakao.maps.load(() => initializeMap());
@@ -129,9 +141,11 @@ export default function KakaoMap({ latitude, longitude, title, address, phone, m
         }}
       />
       <div
-          ref={mapRef}
-          className="w-full h-[70vh] md:h-[75vh] lg:h-[80vh] rounded-md shadow-lg"
-        />
+        ref={mapRef}
+        className="w-full h-[70vh] md:h-[75vh] lg:h-[80vh] rounded-md shadow-lg"
+      />
     </div>
   );
-}
+});
+
+export default KakaoMap;

@@ -58,7 +58,6 @@ export default function StoreLocationSection() {
               </button>
             </div>
           </div>
-
           
           {/* 매장 정보 카드 */}
           <div className="flex flex-col items-center justify-between p-4 mt-6 space-y-4 bg-white rounded-lg shadow-md md:flex-row md:space-y-0">
@@ -78,13 +77,28 @@ export default function StoreLocationSection() {
 
             {/* 아이콘 */}
             <div className="flex justify-center gap-4">
-              <a href="#" className="flex flex-col items-center">
+              <a
+                  href="https://naver.me/FfW0iVPX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="네이버 예약"
+                >
                 <img src="/icons/(store)/ico1.png" alt="예약" className="w-12 h-15" />
               </a>
-              <a href="#" className="flex flex-col items-center">
+              <a
+                href="https://naver.me/xdk3kzp3"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="네이버 로드뷰"
+              >
                 <img src="/icons/(store)/ico9.png" alt="로드뷰" className="w-12 h-15" />
               </a>
-              <a href="#" className="flex flex-col items-center">
+               <a
+                  href="https://naver.me/53Xl4qI0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="네이버 지도"
+                >
                 <img src="/icons/(store)/ico7.png" alt="지도" className="w-12 h-15" />
               </a>
               <a href="#" className="flex flex-col items-center">
@@ -93,8 +107,15 @@ export default function StoreLocationSection() {
             </div>
 
             {/* 전화번호 */}
+           {/* 전화 링크 */}
             <div className="text-base font-semibold text-gray-800">
-              053-768-3035
+              <a
+                href="tel:053-768-3035"
+                className="text-sm flex items-center gap-2 hover:text-blue-600"
+              >
+                <i className="fa fa-phone" aria-hidden="true"></i>
+                 📞 053-768-3035
+              </a>
             </div>
           </div>
         </div>
