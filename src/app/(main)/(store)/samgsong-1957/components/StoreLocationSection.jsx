@@ -3,7 +3,10 @@ import KakaoMap from "@/components/KakaoMap";
 
 export default function StoreLocationSection() {
   return (
-    <section className="bg-gray-50">
+    <section className="bg-gray-50"
+             data-aos="fade-up"
+             data-aos-delay="100"
+             data-aos-duration="800">
       {/* 지도를 화면에 꽉 차게 보여줌 */}
       <div className="w-full">
         <KakaoMap

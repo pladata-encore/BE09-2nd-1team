@@ -12,7 +12,10 @@ export default function HeroSection() {
         priority
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <h1 className="text-5xl font-semibold text-white">삼송빵집 본점</h1>
+        <h1 className="text-5xl font-semibold text-white"
+             data-aos="fade-up"
+             data-aos-delay="100"
+             data-aos-duration="800">삼송빵집 본점</h1>
       </div>
     </section>
   )

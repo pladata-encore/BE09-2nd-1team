@@ -14,6 +14,10 @@ import HeroSection from "./components/HeroSection"
 import StoreDetailTable from "./components/StoreDetailTable"
 import { Home } from "lucide-react"
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 export default function Page() {
   const images = [
     "/images/(store)/main1.png", 
@@ -23,7 +27,13 @@ export default function Page() {
     "/images/(store)/main5.png",
   ]
 
-  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  useEffect(() => {
+    AOS.init({ once: true }); // AOS 초기화
+    if (thumbsSwiper) {
+      thumbsSwiper.slideTo(0);
+    }
+  }, [thumbsSwiper]);
 
   useEffect(() => {
 
@@ -50,7 +60,12 @@ export default function Page() {
   
       <div className="max-w-screen-xl mx-auto px-4 py-6">
     
-        <div className="w-full mb-8">
+        <div
+            className="w-full mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="800"
+          >
        
           <div className="relative w-full mb-4 overflow-hidden">
             <Swiper
@@ -82,6 +97,11 @@ export default function Page() {
           </div>
 
           {/* Thumbnail slider */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="800"
+          >
           <Swiper
             onSwiper={setThumbsSwiper}
             modules={[Thumbs]}
@@ -105,7 +125,7 @@ export default function Page() {
             ))}
           </Swiper>
         </div>
-
+      </div>
         {/* Store details - Full width */}
         <StoreDetailTable />
       </div>
