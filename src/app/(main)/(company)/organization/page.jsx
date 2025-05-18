@@ -1,30 +1,14 @@
-import React from "react";
+<div className="grid grid-cols-3 gap-8 text-center">
+  {/* 최고 경영자 */}
+  <div className="col-span-3 text-2xl font-bold text-gray-800">대표이사</div>
 
-export default function page() {
-  return (
-    <>
-      <div></div>
-      <div className="relative w-[500px] h-[500px]">
-        <img
-          src="images\organization\intro4-img_230627.png"
-          alt="기업이념"
-          className="object-cover w-full h-full"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-white"></span>
-        </div>
-      </div>
+  {/* 중간 관리자 */}
+  <div className="col-span-1 text-xl font-semibold text-gray-700">기획팀</div>
+  <div className="col-span-1 text-xl font-semibold text-gray-700">영업팀</div>
+  <div className="col-span-1 text-xl font-semibold text-gray-700">생산팀</div>
 
-      <div className="mt-4 space-y-6 text-base text-center text-gray-700">
-        {/* 첫 번째 문단 덩어리 */}
-        <div className="space-y-2 text-lg leading-relaxed tracking-wide fade-in-up">
-          <p>우주 최강 제빵 사관학교 삼송 스쿨에 다니는 삼송 친구들 이야기.</p>
-          <p>
-            최고의 원료, 최고의 손맛, 빵에 대한 우주 최강 지식이 아니고서는
-            아무나 들어갈 수 없는 학교이다.
-          </p>
-        </div>
-      </div>
-    </>
-  );
-}
+  {/* 팀원 */}
+  <div className="col-span-1 text-lg text-gray-600">기획 담당</div>
+  <div className="col-span-1 text-lg text-gray-600">영업 담당</div>
+  <div className="col-span-1 text-lg text-gray-600">생산 담당</div>
+</div>;
