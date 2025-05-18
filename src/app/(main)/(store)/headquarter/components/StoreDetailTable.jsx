@@ -1,4 +1,9 @@
-"use client"
+"use client";
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 export default function StoreDetailTable({
   title = "삼송빵집 본점",
@@ -16,10 +21,19 @@ export default function StoreDetailTable({
     { label: "기타", value: other },
   ];
 
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
+
   return (
-    <section className="w-full max-w-5xl mx-auto pt-10 pb-12 px-4 relative mt-20">
-      {/* Samsong Bakery (styled like ::before) */}
-      <div className="absolute top-12 right-5 text-[30px] font-serif text-gray-500 opacity-20 pointer-events-none select-none">
+    <section className="w-full max-w-5xl mx-auto pt-10 pb-12 px-4 relative mt-20"
+             data-aos="fade-up"
+             data-aos-delay="100"
+             data-aos-duration="600">
+      
+      <div className="absolute top-12 right-5 text-[30px] font-serif text-gray-300 opacity-20 pointer-events-none select-none"
+           data-aos="fade-in"
+           data-aos-delay="300">
         Samsong Bakery
       </div>
 
