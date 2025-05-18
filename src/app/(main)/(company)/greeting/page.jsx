@@ -81,21 +81,18 @@ export default function Page() {
                   해외 진출 등으로 더욱 단단한 성장의 발판을 준비하고 있습니다.
                 </p>
               </div>
-              <div>
-                <span>
-                  <p className="mt-6 font-semibold text-right text-gray-600">
-                    대표이사 박성욱
-                  </p>
-                </span>
-                <span>
-                  <p>
-                    <img
-                      src="/images/greeting/sign.jpg"
-                      alt="사인"
-                      className="object-cover w-full h-full"
-                    />
-                  </p>
-                </span>
+              <div className="flex items-center justify-end mt-6 space-x-4">
+                {/* 직책 성함 */}
+                <p className="font-semibold text-right text-gray-600">
+                  대표이사 박성욱
+                </p>
+
+                {/* 사인 이미지 */}
+                <img
+                  src="/images/greeting/sign.png"
+                  alt="사인"
+                  className="w-[100px] h-auto object-cover"
+                />
               </div>
             </div>
           </div>
