@@ -20,6 +20,7 @@ const part1 = products.slice(8, 12);
 const part2 = products.slice(2, 4);
 // 나머지 메뉴 삽입
 const part3 = products.slice(12);
+}
 
 const selectedProducts = [
   ...part1,  
@@ -131,4 +132,4 @@ const selectedProducts = [
       />
     </>
   );
-}
+
