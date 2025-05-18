@@ -31,7 +31,7 @@ export default function Sec4best() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex justify-center mt-[40px] ">
+      <div className="flex justify-center mt-[40px] cursor-pointer">
         <div className="bg-[url('/images/main/arrow_prev.png')] swiper-button-prev h-[26px] w-[67px] border-r-1"></div>
         <div className="bg-[url('/images/main/arrow_next.png')] swiper-button-next h-[26px] w-[67px]"></div>
       </div>
