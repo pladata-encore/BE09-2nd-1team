@@ -1,6 +1,9 @@
 import React from "react";
 import Identify from "./indentiIntro";
 import Difference from "./Difference"
+import Difference2 from "./Difference2"
+import Difference3 from "./Difference3"
+import Difference4 from "./Difference4"
 export default function Page() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -14,6 +17,12 @@ export default function Page() {
         <Identify />
         {/* 섹션 2 */}
         <Difference />
+        {/* 섹션 3 */}
+        <Difference2 />
+        {/* 섹션 4 */}
+        <Difference3 />
+        {/* 섹션 5 */}
+        <Difference4 />
       </main>
     </div>
   );
