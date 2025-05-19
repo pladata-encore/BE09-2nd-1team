@@ -49,11 +49,11 @@ export default function Page() {
 
     
       
-        <div className="flex items-center gap-2 text-sm font-medium">
+        <div className="flex items-center text-sm font-medium">
         </div>
       
   
-      <div className="max-w-screen-xl px-4 py-6 mx-auto">
+      <div className="max-w-screen-xl px-4 mx-auto py-30">
     
         <div
             className="w-full mb-8"
@@ -62,7 +62,7 @@ export default function Page() {
             data-aos-duration="800"
           >
        
-          <div className="relative w-full mb-4 overflow-hidden">
+          <div className="relative w-auto mb-5 overflow-hidden">
             <Swiper
               navigation
               modules={[Navigation, Thumbs]}
@@ -112,7 +112,7 @@ export default function Page() {
             }}
           >
             {images.map((src, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className="px-1">
                 <div className="relative w-full h-20 cursor-pointer rounded overflow-hidden border hover:border-[#5C2E14] ">
                   <Image src={src || "/placeholder.svg"} alt={`썸네일 ${index + 1}`} fill className="object-cover" />
                 </div>
