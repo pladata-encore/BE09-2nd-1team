@@ -3,7 +3,7 @@ import React from "react";
 export default function Philosophy() {
   return (
     <>
-      <div className="relative w-full h-[500px]">
+      <div className="relative w-full h-[580px]">
         <img
           src="/images/greeting/s_visual6.jpg"
           alt="기업이념"

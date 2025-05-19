@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[400px] w-full">
+    <section className="relative h-[580px] w-full">
       <Image
         src="/images/(store)/s_von.jpg"
         alt="삼송빵집 배경 이미지"

@@ -19,7 +19,7 @@ export default function HeroSection(){
     return(
         <>
           {/* 히어로 섹션 */}
-      <section className="relative h-[500px] w-full">
+      <section className="relative h-[580px] w-full">
         <div className="absolute inset-0">
           <img src="/images/(store)/s_1957.jpg" alt="삼송빵집 매장 이미지" className="object-cover w-full h-full" />
         </div>
