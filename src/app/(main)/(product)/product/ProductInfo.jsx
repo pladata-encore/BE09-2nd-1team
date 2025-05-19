@@ -47,7 +47,7 @@ export default function ProductInfo() {
   return (
     <>
       {/* 제품 소개 이미지 영역 */}
-      <div className="relative w-full h-[650px]">
+      <div className="relative w-full h-[580px]">
         <img
           src="/images/products/product_main.jpg"
           alt="제품 소개"
@@ -110,7 +110,7 @@ export default function ProductInfo() {
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="m-4 text-lg text-center text-white ">
+                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">
                     {product.description}
                   </p>
                 )}
