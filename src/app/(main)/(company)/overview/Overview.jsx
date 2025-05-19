@@ -21,8 +21,8 @@ export default function OverView() {
         </div>
       </div>
 
-      <div>
-        {/*상단 텍스트*/}
+      <div className="min-h-[1000px]">
+        {/*중단 텍스트*/}
         <div className="mt-20 mull ml-items-start text-7xl">
           <p className="text-3xl font-bold text-brown-500 text-semibold">
             전국 46개 매장 · 일 100만개의 빵 · 300여명의 직원
