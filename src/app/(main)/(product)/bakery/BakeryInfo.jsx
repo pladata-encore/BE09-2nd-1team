@@ -15,24 +15,19 @@ export default function BakeryInfo() {
 
   // 통옥수수,고로케 제품을 제외한 리스트 새로 생성
   // 콘짜렐라부터 시작
-const part1 = products.slice(8, 12);
-// 이후 크림치즈, 크림치즈찰떡빵 삽입입
-const part2 = products.slice(2, 4);
-// 나머지 메뉴 삽입
-const part3 = products.slice(12);
-}
+  const part1 = products.slice(8, 12);
+  // 이후 크림치즈, 크림치즈찰떡빵 삽입입
+  const part2 = products.slice(2, 4);
+  // 나머지 메뉴 삽입
+  const part3 = products.slice(12);
 
-const selectedProducts = [
-  ...part1,  
-  ...part2,  
-  ...part3   
-];
+  const selectedProducts = [...part1, ...part2, ...part3];
 
   useEffect(() => {
     // AOS 초기화
     AOS.init({
       duration: 800,
-      once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+      once: false,
     });
     AOS.refresh();
   }, [pathname]);
@@ -74,7 +69,7 @@ const selectedProducts = [
           return (
             <div
               key={index}
-              className={`mb-6 rounded-lg border bg-amber-50 transition-all duration-300 overflow-hidden relative`}
+              className="relative w-[304px] min-h-[403px] overflow-hidden transition-all duration-300 border rounded-lg h-mb-6 bg-amber-50"
               style={
                 isHovered
                   ? {
@@ -96,27 +91,26 @@ const selectedProducts = [
                 {product.name}
               </h1>
               <h1
-                className={`ml-5 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
-      ${isHovered ? "text-amber-200" : "text-[#512d1e] opacity-30"}`}
+                className={`ml-5 mr-2 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
+      ${isHovered ? "h-0" : "text-[#512d1e] opacity-30"}`}
               >
                 {isHovered ? " " : product.engName.toUpperCase()}
               </h1>
               {/* 이미지와 설명을 flex로 감쌈 */}
               <div
-                className={`m-5 flex flex-col ${
+                className={`mt-5 md-5 flex flex-col ${
                   isHovered ? "justify-center items-center" : "items-start"
                 }`}
-                style={{ minHeight: "320px" }}
               >
                 <img
                   src={isHovered ? product.imagedetail : product.image}
-                  className={`transition-all duration-300 ${
-                    isHovered ? "w-3/4 h-3/4" : "w-full h-10/12"
+                  className={`w-full transition-all duration-300 object-cover ${
+                    isHovered ? "scale-75" : "scale-100"
                   }`}
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="w-full mt-4 text-lg text-center text-white">
+                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">
                     {product.description}
                   </p>
                 )}
@@ -132,4 +126,4 @@ const selectedProducts = [
       />
     </>
   );
-
+}

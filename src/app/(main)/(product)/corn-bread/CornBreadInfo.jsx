@@ -12,7 +12,7 @@ export default function CornBreadInfo() {
     // AOS 초기화
     AOS.init({
       duration: 800,
-      once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+      once: false,
     });
     AOS.refresh();
   }, [pathname]);

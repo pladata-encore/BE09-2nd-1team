@@ -39,7 +39,7 @@ export default function CornbreadCard() {
           return (
             <div
               key={index}
-              className="relative w-[300px] h-[400px] transition-all duration-300 border rounded-lg bg-amber-50 overflow-hidden"
+              className="relative w-[304px] h-[403px] transition-all duration-300 border rounded-lg bg-amber-50 overflow-hidden"
               style={{
                 backgroundImage: isHovered
                   ? "url('/images/products/product-bg.png')"
@@ -92,7 +92,7 @@ export default function CornbreadCard() {
                     isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
                   }`}
                 >
-                  <p className="text-lg leading-relaxed text-center text-white">
+                  <p className="text-lg leading-relaxed text-center text-white whitespace-pre-line">
                     {product.description}
                   </p>
                 </div>

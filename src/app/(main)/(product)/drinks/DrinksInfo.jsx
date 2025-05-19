@@ -16,7 +16,7 @@ export default function DrinksInfo() {
       // AOS 초기화
       AOS.init({
         duration: 800,
-        once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+        once: false,
       });
       AOS.refresh();
     }, [pathname]);
@@ -59,7 +59,7 @@ export default function DrinksInfo() {
             // 제품 카드
             <div
               key={index}
-              className={`mb-6 rounded-lg border bg-amber-50 transition-all duration-300 overflow-hidden relative`}
+              className={`w-[304px] h-[403px] mb-6 rounded-lg border bg-amber-50 transition-all duration-300 overflow-hidden relative`}
               style={
                 isHovered
                   ? {
@@ -81,25 +81,19 @@ export default function DrinksInfo() {
                 {drink.name}
               </h1>
               <h2
-                className={`ml-5 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
-                  ${
-                    isHovered ? "text-amber-200" : " text-[#512d1e] opacity-30"
-                  } `}
+                className={`ml-5 mt-2 text-2xl font-bold text-left font-['yg-jalnan'] opacity-30`}
               >
                 {isHovered ? " " : drink.engName.toUpperCase()}
               </h2>
-              {/* 이미지를 flex로 감싸! */}
+              {/* 이미지를 flex로 감쌈 */}
               <div
                 className={`m-5 flex flex-col ${
                   isHovered ? "justify-center items-center" : "items-start"
                 }`}
-                style={{ minHeight: "320px" }}
               >
                 <img
                   src={isHovered ? drink.imagedetail : drink.image}
-                  className={`transition-all duration-300 ${
-                    isHovered ? "w-3/4 h-3/4" : "w-full h-10/12"
-                  }`}
+                  className={`transition-all duration-300 ${isHovered ? "scale-90" : "scale-100"}`}
                   alt={`${drink.name} 이미지`}
                 />
               </div>

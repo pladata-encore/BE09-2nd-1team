@@ -2,7 +2,7 @@
   {
     "name": "통옥수수빵",
     "engName" : "Flaked Corn Bread",
-    "description": "한번 맛보면 헤어나올 수 없는 맛! \n 삼송빵집의 베스트 메뉴, 특제 소스로 \n 맛을 낸 원조 옥수수빵!",
+    "description": "한번 맛보면 헤어나올 수 없는 맛! 삼송빵집의 베스트 메뉴, 특제 소스로 맛을 낸 원조 옥수수빵!",
     "price": 2800,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/tongcorn.png",
@@ -20,7 +20,7 @@
   {
     "name": "크림치즈빵",
     "engName" : "Cream Cheese Bread",
-    "description": "겉과 속이 하얀 크림치즈로 가득! \n 씹을수록 고소하고 달콤한 크림치즈빵",
+    "description": "겉과 속이 하얀 크림치즈로 가득! 씹을수록 고소하고 달콤한 크림치즈빵",
     "price": 3800,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/cheese.png",
@@ -29,7 +29,7 @@
   {
     "name": "크림치즈 찰떡빵",
     "engName" : "Cream Cheese Glutinous Rice Cake Bread",
-    "description": "크림치즈와 찹쌀떡의 조화! \n 외국인들이 가장 선호하는 빵",
+    "description": "크림치즈와 찹쌀떡의 조화! 외국인들이 가장 선호하는 빵",
     "price": 3200,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/cheesedduk.png",
@@ -38,7 +38,7 @@
   {
     "name": "야채 고로케",
     "engName" : "Vegetable Croquette",
-    "description": "삼송빵집의 두번째 베스트 메뉴!! \n 신선한 야채를 가득 넣은 고로케",
+    "description": "삼송빵집의 두번째 베스트 메뉴!! 신선한 야채를 가득 넣은 고로케",
     "price": 2800,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/vege.png",
@@ -47,7 +47,7 @@
   {
     "name": "고추 고로케",
     "engName" : "Chili Baked Croquette",
-    "description": "매콤한 고추와 신선한 야채가 \n 들어가있는 화끈한 맛의 고로케",
+    "description": "매콤한 고추와 신선한 야채가 들어가있는 화끈한 맛의 고로케",
     "price": 2900,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/gochu.png",
@@ -56,7 +56,7 @@
   {
     "name": "한우 고로케",
     "engName": "Korean Premium Beef Croquette",
-    "description": "골고루 다진 한우와 신선한 야채가 \n 들어있는 영양만점 고로케",
+    "description": "골고루 다진 한우와 신선한 야채가 들어있는 영양만점 고로케",
     "price": 3800,
     "allergy": "밀, 난류, 우유, 쇠고기",
     "image": "/images/products/hanwoo.png",
@@ -65,7 +65,7 @@
   {
     "name": "만두 고로케",
     "engName": "Mandu Baked Croquette",
-    "description": "선대의 황해도식 만두 노하우를 담아 \n 100% 국산 돈육과 채소로 가득 찬 고로케",
+    "description": "선대의 황해도식 만두 노하우를 담아 100% 국산 돈육과 채소로 가득 찬 고로케",
     "price": 3400,
     "allergy": "밀, 난류, 우유, 돼지고기",
     "image": "/images/products/mandu.png",
@@ -74,7 +74,7 @@
   {
     "name": "콘짜렐라 허니갈릭",
     "engName": "Cornzarella Honey Garlic",
-    "description": "옥수수와 치즈가 듬뿍! 버터의 풍미가 \n 더해진 허니 갈릭 치즈 옥수수빵",
+    "description": "옥수수와 치즈가 듬뿍! 버터의 풍미가 더해진 허니 갈릭 치즈 옥수수빵",
     "price": 3400,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/honeygarlic.png",
@@ -83,7 +83,7 @@
   {
     "name": "콘짜렐라 페퍼로니",
     "engName": "Cornzarella Pepperoni",
-    "description": "100% 엑스트라 버진 오일을 쓴 피자소스에 매콤한 페퍼로니가 더해진 치즈 옥수수빵",
+    "description": "100% 엑스트라 버진 오일을 쓴 피자소스에 매콤한 페퍼로니가  더해진 치즈 옥수수빵",
     "price": 3400,
     "allergy": "밀, 난류, 우유",
     "image": "/images/products/pepperoni.png",

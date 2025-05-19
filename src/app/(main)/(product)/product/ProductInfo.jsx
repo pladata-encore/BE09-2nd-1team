@@ -61,14 +61,14 @@ export default function ProductInfo() {
         </div>
       </div>
       {/* 제품 리스트 영역 */}
-      <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
+      <div className="grid justify-center gap-6 m-6 sm:grid-cols-2 md:grid-cols-4 items-left">
         {products.map((product, index) => {
           const isHovered = hoveredIndex === index;
           return (
             // 제품 카드
             <div
               key={index}
-              className="relative mb-6 overflow-hidden transition-all duration-300 border rounded-lg bg-amber-50"
+              className="relative w-[304px] min-h-[403px] overflow-hidden transition-all duration-300 border rounded-lg h-mb-6 bg-amber-50"
               style={
                 isHovered
                   ? {
@@ -90,8 +90,8 @@ export default function ProductInfo() {
                 {product.name}
               </h1>
               <h1
-                className={`ml-5 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
-      ${isHovered ? "text-amber-200" : "text-[#512d1e] opacity-30"}`}
+                className={`ml-5 mr-2 mt-2 text-2xl font-bold text-left font-['yg-jalnan']
+      ${isHovered ? "h-0" : "text-[#512d1e] opacity-30"}`}
               >
                 {isHovered ? " " : product.engName.toUpperCase()}
               </h1>
@@ -100,17 +100,16 @@ export default function ProductInfo() {
                 className={`mt-5 md-5 flex flex-col ${
                   isHovered ? "justify-center items-center" : "items-start"
                 }`}
-                style={{ minHeight: "320px" }}
               >
                 <img
                   src={isHovered ? product.imagedetail : product.image}
-                  className={`transition-all duration-300 ${
-                    isHovered ? "w-3/4 h-full" : "w-full h-10/12"
+                  className={`w-full transition-all duration-300 object-cover ${
+                    isHovered ? "scale-75" : "scale-100"
                   }`}
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">
+                  <p className="m-4 text-lg text-center text-white text-pretty">
                     {product.description}
                   </p>
                 )}
