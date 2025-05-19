@@ -1,5 +1,6 @@
 import React from "react";
 import LocationInfo from "./LocationInfo";
+import LocationKakao from "./LocationKakao"
 // import Location from "./Location";
 
 export default function Page() {
@@ -12,7 +13,7 @@ export default function Page() {
           </div>
         </div>
         {/* 섹션 2 카카오맵*/}
-
+        <LocationKakao />
         {/* 섹션 3 길안내 */}
                 <div className="w-full h-16" />
 
