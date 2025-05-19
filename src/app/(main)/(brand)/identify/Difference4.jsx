@@ -1,6 +1,12 @@
-import React from "react";
+"use client";
 
+import React,{useEffect} from "react";
+import "aos/dist/aos.css";
+import Aos from "aos";
 export default function Identify() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="relative text-gray-800 bg-[#fefbf5] w-[2258.82px] h-[1058.99px]">
       {/* 우측 상단 겹치는 이미지 (좌우 반전 → 오른쪽으로 이동) */}
@@ -8,12 +14,14 @@ export default function Identify() {
         src="/images/identi_images/num04.png"
         alt="장식 이미지"
         className="absolute top-10 right-70 w-[380px] h-[220px] z-10"
+        data-aos="zoom-in"
+        data-aos-delay="700"
       />
 
       {/* Logo Section */}
       <div className="relative z-0 flex justify-center gap-10 p-16 mt-20">
         {/* 텍스트 및 로고2 박스 (왼쪽으로 이동) */}
-        <div className="w-[800px] h-[809px] flex flex-col items-center justify-center p-6">
+        <div className="w-[800px] h-[809px] flex flex-col items-center justify-center p-6"data-aos = "fade-right" data-aos-delay="800">
           <div className="flex flex-col items-center text-center">
             <p className="mb-6 text-[70px] leading-none">
               <span className="font-extrabold text-yellow-500">나눔 </span>
@@ -49,7 +57,7 @@ export default function Identify() {
         </div>
 
         {/* 로고 1 박스 (오른쪽으로 이동) */}
-        <div className="w-[800px] h-[809px] flex items-center justify-center">
+        <div className="w-[800px] h-[809px] flex items-center justify-center"data-aos = "zoom-in" data-aos-delay="700">
           <img
             src="/images/identi_images/brand-gift-differnt1.png"
             alt="삼송빵집 로고 1"

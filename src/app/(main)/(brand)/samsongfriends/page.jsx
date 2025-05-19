@@ -13,6 +13,8 @@ export default function Page() {
           </div>
         </div>
         {/* 섹션 2 소개 이미지 및 글귀*/}
+        <div className="w-full h-16" />
+
         <FriendIntroSection />
         {/* 섹션 3 캐릭터 카드 */}
         <CharacterCard />

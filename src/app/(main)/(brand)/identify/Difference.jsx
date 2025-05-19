@@ -1,6 +1,13 @@
-import React from "react";
+"use client";
+
+import React,{useEffect} from "react";
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 export default function Identify() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="relative text-gray-800 bg-white">
       {/* 좌측 상단 겹치는 이미지 */}
@@ -8,12 +15,14 @@ export default function Identify() {
         src="/images/identi_images/num01.png" // 원하는 이미지 경로
         alt="장식 이미지"
         className="absolute top-10 left-20 w-[320px] h-[220px] z-10"
+        data-aos="zoom-in"
+        data-aos-delay="100"
       />
 
       {/* Logo Section */}
       <div className="relative z-0 flex justify-center gap-10 p-16 mt-20">
         {/* 로고 1 박스 */}
-        <div className="w-[800px] h-[809px] flex items-center justify-center">
+        <div className="w-[800px] h-[809px] flex items-center justify-center" data-aos = "zoom-in" data-aos-delay="100">
           <img
             src="/images/identi_images/brand-cunsumer-differnt1.png"
             alt="삼송빵집 로고 1"
@@ -21,7 +30,7 @@ export default function Identify() {
           />
         </div>
 
-        <div className="w-[800px] h-[809px] flex flex-col items-center justify-center p-6">
+        <div className="w-[800px] h-[809px] flex flex-col items-center justify-center p-6"data-aos = "fade-left" data-aos-delay="200">
           {/* 텍스트 박스 */}
           <div className="flex flex-col items-center text-center">
             <p className="mb-6 text-[70px]  leading-none">
@@ -56,7 +65,6 @@ export default function Identify() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
