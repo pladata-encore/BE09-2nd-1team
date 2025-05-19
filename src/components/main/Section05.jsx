@@ -104,15 +104,15 @@ export default function Section05() {
         <div
           data-aos="flip-up"
           data-aos-delay="400"
-          className="w-[90%] bg-[#afa09a] max-w-[784px] leading-[80px] mx-auto mt-[-40px] rounded-[50px] flex"
+          className="w-[90%] bg-[#afa09a] max-w-[784px] leading-[80px] ml-[20%] mt-[-40px] rounded-[50px] flex"
         >
           <input
             type="text"
             className="h-[80px] w-[calc(100%-80px)] leading-[80px] text-white text-[20px] px-[30px]"
             placeholder="내 주변 가까운 삼송빵집을 찾아보세요!"
           />
+          <button className="absolute top-0 right-[0%] bg-[url(/images/main/msearch.png)] w-[80px] h-[80px]"></button>
         </div>
-        <button className="absolute bottom-0 right-[30%] bg-[url(/images/main/msearch.png)] w-[80px] h-[80px]"></button>
         <article className="py-[60px] flex flex-wrap">
           <div className="w-[calc(100%-1222px)]">
             <h3
