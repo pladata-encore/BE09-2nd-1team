@@ -48,20 +48,13 @@ export default function ProductInfo() {
     <>
       {/* 제품 소개 이미지 영역 */}
       <div className="relative w-full h-[580px]">
-        <img
-          src="/images/products/product_main.jpg"
-          alt="제품 소개"
-          className="object-cover w-full h-full"
-        />
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          data-aos="fade-up"
-        >
+        <img src="/images/products/product_main.jpg" alt="제품 소개" className="object-cover w-full h-full" />
+        <div className="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
           <span className="text-6xl font-bold text-white">제품소개</span>
         </div>
       </div>
       {/* 제품 리스트 영역 */}
-      <div className="grid justify-center gap-6 m-4 sm:grid-cols-2 md:grid-cols-4 items-left">
+      <div className="grid justify-center gap-6 m-4 mt-[80px] sm:grid-cols-2 md:grid-cols-4 items-left">
         {products.map((product, index) => {
           const isHovered = hoveredIndex === index;
           return (
@@ -97,22 +90,16 @@ export default function ProductInfo() {
               </h1>
               {/* 이미지와 설명을 flex로 감쌈 */}
               <div
-                className={`mt-5 md-5 flex flex-col ${
-                  isHovered ? "justify-center items-center" : "items-start"
-                }`}
+                className={`mt-5 md-5 flex flex-col ${isHovered ? "justify-center items-center" : "items-start"}`}
                 style={{ minHeight: "320px" }}
               >
                 <img
                   src={isHovered ? product.imagedetail : product.image}
-                  className={`transition-all duration-300 ${
-                    isHovered ? "w-3/4 h-full" : "w-full h-10/12"
-                  }`}
+                  className={`transition-all duration-300 ${isHovered ? "w-3/4 h-full" : "w-full h-10/12"}`}
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">
-                    {product.description}
-                  </p>
+                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">{product.description}</p>
                 )}
               </div>
             </div>
@@ -120,12 +107,7 @@ export default function ProductInfo() {
         })}
       </div>
       {/* 제품 상세정보 모달 */}
-      {selectedProduct && (
-        <ProductModal
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
-      )}
+      {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
     </>
   );
 }
