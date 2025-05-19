@@ -6,11 +6,9 @@ import menuData from "../header/data/menuData";
 
 export default function Submenu() {
   const pathname = usePathname();
-
-  // /other 경로에서는 표시하지 않음
-  if (pathname === "/other" || pathname.startsWith("/other/")) {
-    return null;
-  }
+  // 드롭다운 상태 관리
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
+  const [isItemOpen, setIsItemOpen] = useState(false);
 
   // 현재 페이지에 해당하는 섹션과 현재 아이템 탐색 (startsWith로 매칭)
   let currentSection = null;
@@ -29,10 +27,6 @@ export default function Submenu() {
 
   // 메뉴에 해당하지 않는 경로인 경우 렌더링 생략
   if (!currentSection || !currentItem) return null;
-
-  // 드롭다운 상태 관리
-  const [isSectionOpen, setIsSectionOpen] = useState(false);
-  const [isItemOpen, setIsItemOpen] = useState(false);
 
   const toggleSection = () => {
     setIsSectionOpen((prev) => {
