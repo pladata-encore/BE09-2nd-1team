@@ -4,15 +4,12 @@ import React from "react";
 export default function OverView() {
   return (
     <>
-      <div className="relative w-full h-[500px]">
+      <div className="relative w-full h-[580px] overflow-hidden bg-gray-900">
         <img
-          src="\images\greeting\s_visual6.jpg"
+          src="/images/greeting/s_visual6.jpg"
           alt="기업개요"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full animate-fade-in"
         />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-bold text-white">기업개요</span>
       </div>
       <div class="max-w-2xl mx-auto p-6">
         <p class="mt-4 text-center text-lg">
