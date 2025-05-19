@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import CroquetteCard from "./CroquetteCard";
+import ProductCard from "../product/ProductCard";
+import products from "../product/product";
 
 export default function CroquetteInfo() {
   const pathname = usePathname();
@@ -12,10 +13,12 @@ export default function CroquetteInfo() {
     // AOS 초기화
     AOS.init({
       duration: 800,
-      once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+      once: false,
     });
     AOS.refresh();
   }, [pathname]);
+
+  const croquetteItems = products.slice(4, 8);
 
   return (
     <>
@@ -57,9 +60,9 @@ export default function CroquetteInfo() {
           </span>
         </div>
       </div>
-      <div className="relative flex flex-row items-center w-full h-full mt-20 mb-24">
+      <div className="relative flex flex-row items-center w-full h-full mb-24">
         {/* 이미지 영역 */}
-        <div className="flex-shrink-0 ml-8" data-aos="fade-up">
+        <div className="flex-shrink-0 mt-5 ml-8" data-aos="fade-up">
           <img
             src="/images/croquette/croquette-img.png"
             alt="고로케 상세 소개"
@@ -137,9 +140,9 @@ export default function CroquetteInfo() {
         </div>
       </div>
       {/* 제품 카드 영역 */}
-      <div>
+      <div className="ml-5">
         {/* 제품 카드 */}
-        <CroquetteCard />
+        <ProductCard items={croquetteItems} />
       </div>
     </>
   );

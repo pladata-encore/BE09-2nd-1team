@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Sec4best from "./components/Sec4best";
 import Sec4other from "./components/Sec4other";
+import sec4product from "./data/Sec4product";
 
 export default function Section04() {
   const [tab, setTab] = useState("best");
@@ -24,7 +25,9 @@ export default function Section04() {
               tab === "best" ? "bg-[#512d1e] text-white" : ""
             }`}
           >
-            <span className="font-['Cafe24Decobox'] text-[22px] font-bold">best</span>
+            <span className="font-['Cafe24Decobox'] text-[22px] font-bold">
+              best
+            </span>
           </button>
           <button
             onClick={() => setTab("other")}
@@ -32,7 +35,9 @@ export default function Section04() {
               tab === "other" ? "bg-[#512d1e] text-white" : ""
             }`}
           >
-            <span className="font-['Cafe24Decobox'] text-[22px] font-bold">other things</span>
+            <span className="font-['Cafe24Decobox'] text-[22px] font-bold">
+              other things
+            </span>
           </button>
         </div>
       </article>
