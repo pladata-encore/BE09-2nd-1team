@@ -110,7 +110,7 @@ export default function ProductInfo() {
                   alt={`${product.name} 이미지`}
                 />
                 {isHovered && (
-                  <p className="m-4 text-lg text-center text-white ">
+                  <p className="m-4 text-lg text-center text-white whitespace-pre-line">
                     {product.description}
                   </p>
                 )}
