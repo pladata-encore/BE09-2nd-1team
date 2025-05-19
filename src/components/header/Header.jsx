@@ -62,9 +62,12 @@ export default function Header() {
                   return (
                     <li
                       key={item.label}
-                      className="flex justify-center items-center whitespace-nowrap border-b border-white h-[55px] px-4 py-2 hover:bg-[#512d1e] transition-colors duration-200"
+                      className="flex w-[197px] justify-center items-center whitespace-nowrap border-b border-white h-[55px] hover:bg-[#512d1e] transition-colors duration-200"
                     >
-                      <Link href={item.href} className="text-white text-base w-[165px] flex justify-center ">
+                      <Link
+                        href={item.href}
+                        className="text-white text-base w-full  h-[55px] flex justify-center items-center"
+                      >
                         {item.label}
                         {item.hasIcon && (
                           <span>
