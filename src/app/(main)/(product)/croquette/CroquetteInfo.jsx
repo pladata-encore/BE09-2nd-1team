@@ -19,7 +19,7 @@ export default function CroquetteInfo() {
 
   return (
     <>
-      <div className="relative w-full h-[650px]">
+      <div className="relative w-full h-[580px]">
         <img
           src="/images/products/product_main.jpg"
           alt="통옥수수빵"
