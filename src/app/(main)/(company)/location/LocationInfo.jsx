@@ -1,5 +1,8 @@
-import React from "react";
+"use client"
 
+import React, { useEffect } from "react";
+import "aos/dist/aos.css";
+import Aos from "aos";
 const badgeStyle = {
   display: "inline-flex",
   alignItems: "center",
@@ -22,11 +25,14 @@ const sectionStyle = {
 };
 
 const LocationInfo = () => {
+  useEffect(() => {
+          Aos.init();
+        }, []);
   return (
-    <div className="w-[1400px] px-4 text-gray-800" style={{ paddingBottom: "60px" }}>
+    <div className="w-[1400px] px-4 text-gray-800" style={{ paddingBottom: "60px" }} >
       {/* 본사 */}
-      <section style={sectionStyle}>
-        <div className="flex">
+      <section style={sectionStyle} data-aos="fade-up" data-aos-delay = "200">
+        <div className="flex" >
           <h2 className="text-[18px] font-bold min-w-[60px]">본사</h2>
           <div className="ml-8">
             <p className="mb-1 text-[20px] font-black">
@@ -49,7 +55,7 @@ const LocationInfo = () => {
       </section>
 
       {/* 지하철 */}
-      <section style={sectionStyle}>
+      <section style={sectionStyle} data-aos="fade-up" data-aos-delay = "300">
         <div className="flex">
           <h2 className="text-[18px] font-bold min-w-[60px]">지하철</h2>
           <ul className="ml-8 list-disc list-inside text-[16px] space-y-1">
@@ -61,7 +67,7 @@ const LocationInfo = () => {
       </section>
 
       {/* 버스 */}
-      <section style={{ ...sectionStyle, minHeight: "410px" }}>
+      <section style={{ ...sectionStyle, minHeight: "410px" }} data-aos="fade-up" data-aos-delay = "400">
         <div className="flex">
           <h2 className="text-[18px] font-bold min-w-[60px]">버스</h2>
           <ul className="ml-8 space-y-4 text-[16px] list-disc list-inside">
@@ -138,7 +144,7 @@ const LocationInfo = () => {
       </section>
 
       {/* 차량 */}
-      <section style={sectionStyle}>
+      <section style={sectionStyle} data-aos="fade-up" data-aos-delay = "500">
         <div className="flex">
           <h2 className="text-[18px] font-bold min-w-[60px]">차량</h2>
           <div className="ml-8 text-[16px]">
