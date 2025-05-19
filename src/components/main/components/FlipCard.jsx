@@ -1,10 +1,12 @@
+import "../style/flipCard.css";
+
 export default function FlipCard({ breadFrontImg, titleKo, titleEn, backContent, breadBackImg }) {
   return (
-    <div className="w-[315px] h-[412px] perspective mb-[20px]">
-      <div className="relative w-full h-full p-2.5 transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180">
+    <div className="w-[360px] h-[412px] perspective mb-[20px]">
+      <div className="relative w-full h-full p-2.5 transition-transform duration-1000 ease-in-out transform-style-preserve-3d hover:rotate-y-180">
         {/* 앞면 */}
         <div className="absolute w-full h-full overflow-hidden bg-white shadow-md backface-hidden rounded-xl">
-          <div className="pt-[30px] pl-[10px]">
+          <div className="pt-[30px] pl-[30px]">
             <h3 className="text-[32px] font-bold text-[#512d1e]">{titleKo}</h3>
             <p className=" text-[#512d1e] font-['Cafe24Decobox'] mt-[14px] text-xl uppercase leading-6 opacity-30 h-[48px]">
               {titleEn}
