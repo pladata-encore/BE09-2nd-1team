@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react"; 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
@@ -9,10 +9,19 @@ import SwiperCore from "swiper";
 import { Autoplay } from "swiper/modules";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useRouter } from "next/navigation";
 
 SwiperCore.use([Autoplay]);
 
 export default function Section05() {
+
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const router = useRouter();
+  const handleSearch =() => {
+    if(!searchKeyword.trim())return;
+    router.push(`/store?query=${encodeURIComponent(searchKeyword)}`)
+  }
+
   const slideItems = [
     {
       id: 1,
@@ -106,12 +115,14 @@ export default function Section05() {
           data-aos-delay="400"
           className="w-[90%] bg-[#afa09a] max-w-[784px] leading-[80px] ml-[20%] mt-[-40px] rounded-[50px] flex"
         >
-          <input
+        <input
             type="text"
             className="h-[80px] w-[calc(100%-80px)] leading-[80px] text-white text-[20px] px-[30px]"
             placeholder="내 주변 가까운 삼송빵집을 찾아보세요!"
+            value={searchKeyword}
+            onChange={(e) => setSearchKeyword(e.target.value)}
           />
-          <button className="absolute top-0 right-[0%] bg-[url(/images/main/msearch.png)] w-[80px] h-[80px]"></button>
+          <button onClick={handleSearch} className="absolute top-0 right-[0%] bg-[url(/images/main/msearch.png)] w-[80px] h-[80px]"></button>
         </div>
         <article className="py-[60px] flex flex-wrap">
           <div className="w-[calc(100%-1222px)]">
