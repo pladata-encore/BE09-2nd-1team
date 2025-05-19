@@ -3,7 +3,7 @@ import "../style/flipCard.css";
 export default function FlipCard({ breadFrontImg, titleKo, titleEn, backContent, breadBackImg }) {
   return (
     <div className="w-[360px] h-[412px] perspective mb-[20px]">
-      <div className="relative w-full h-full p-2.5 transition-transform duration-1000 ease-in-out transform-style-preserve-3d hover:rotate-y-180">
+      <div className="relative w-full h-full transition-transform duration-700 ease-in-out transform-style-preserve-3d hover:rotate-y-180">
         {/* 앞면 */}
         <div className="absolute w-full h-full overflow-hidden bg-white shadow-md backface-hidden rounded-xl">
           <div className="pt-[30px] pl-[30px]">

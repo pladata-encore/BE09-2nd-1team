@@ -61,7 +61,7 @@ export default function Section05() {
   }, []);
 
   return (
-    <section className="flex flex-col py-[100px] min-h-screen ">
+    <section className="flex flex-col pb-[100px] min-h-screen ">
       <article className="bg-[url(/images/main/mstore-bg.png)] py-[100px] text-center">
         <div>
           <h2 data-aos="fade-up" data-aos-delay="100" className="text-[60px] font-bold leading-[72px] text-white">

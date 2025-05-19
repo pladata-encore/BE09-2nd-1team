@@ -7,14 +7,14 @@ import FlipCard from "./FlipCard";
 
 export default function Sec4best() {
   return (
-    <div className="relative pb-[100px]">
+    <div className="relative">
       <Swiper
         slidesPerView={4}
-        spaceBetween={30}
+        spaceBetween={250}
         loop
         navigation={{
-          nextEl: ".swiper-button-next", // 다음 버튼
-          prevEl: ".swiper-button-prev", // 이전 버튼
+          nextEl: ".slide-button-next", // 다음 버튼
+          prevEl: ".slide-button-prev", // 이전 버튼
         }}
         modules={[Navigation]}
         className="pb-[30px]"
@@ -32,8 +32,8 @@ export default function Sec4best() {
         ))}
       </Swiper>
       <div className="flex justify-center mt-[40px] cursor-pointer">
-        <div className="bg-[url('/images/main/arrow_prev.png')] swiper-button-prev h-[26px] w-[67px] border-r-1"></div>
-        <div className="bg-[url('/images/main/arrow_next.png')] swiper-button-next h-[26px] w-[67px]"></div>
+        <div className="bg-[url('/images/main/arrow_prev.png')] slide-button-prev h-[26px] w-[67px] border-r-1"></div>
+        <div className="bg-[url('/images/main/arrow_next.png')] slide-button-next h-[26px] w-[67px]"></div>
       </div>
     </div>
   );
