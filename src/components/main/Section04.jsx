@@ -7,7 +7,7 @@ export default function Section04() {
   const [tab, setTab] = useState("best");
 
   return (
-    <section className="flex flex-col py-[100px] min-h-screen mx-[30px] bg-[#fffbf2]">
+    <section className="flex flex-col py-[100px] min-h-screen px-[30px] bg-[#fffbf2]">
       <article className="mb-[100px] flex justify-between items-end">
         <div>
           <h2 className="font-['Cafe24Decobox'] text-[70px] leading-[70px] text-[#512d1e]">
