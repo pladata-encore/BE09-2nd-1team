@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import CornbreadCard from "./CornbreadCard";
+import ProductCard from "../product/ProductCard";
+import products from "../product/product";
 
 export default function CornBreadInfo() {
   const pathname = usePathname();
@@ -12,10 +13,12 @@ export default function CornBreadInfo() {
     // AOS 초기화
     AOS.init({
       duration: 800,
-      once: true, // 스크롤 시 애니메이션이 한 번만 실행되도록 설정
+      once: false,
     });
     AOS.refresh();
   }, [pathname]);
+
+  const cornBreadItems = products.slice(0, 2);
 
   return (
     <>
@@ -56,9 +59,9 @@ export default function CornBreadInfo() {
           </span>
         </div>
       </div>
-      <div className="relative flex flex-row items-center w-full h-full mt-20 mb-24">
+      <div className="relative flex flex-row items-center w-full h-full mb-24">
         {/* 이미지 영역 */}
-        <div className="flex-shrink-0 ml-8" data-aos="fade-up">
+        <div className="flex-shrink-0 mt-5 ml-8">
           <img
             src="/images/cornbread/cornbread-img.png"
             alt="통옥수수빵 상세 소개"
@@ -66,9 +69,13 @@ export default function CornBreadInfo() {
           />
         </div>
         {/* 텍스트 영역 */}
-        <div className="flex flex-col flex-grow gap-12 mt-12 mb-12 mr-10 ml-15" >
+        <div className="flex flex-col flex-grow gap-12 mt-12 mb-12 mr-10 ml-15">
           {/* 1번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="200">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8">
               01
             </span>
@@ -88,7 +95,11 @@ export default function CornBreadInfo() {
             </div>
           </div>
           {/* 2번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="300">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8">
               02
             </span>
@@ -107,7 +118,11 @@ export default function CornBreadInfo() {
             </div>
           </div>
           {/* 3번 */}
-          <div className="flex flex-row items-start" data-aos="fade-left" data-aos-delay="400">
+          <div
+            className="flex flex-row items-start"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
             <span className="text-[80px] font-light text-[#e5c87d] leading-none select-none mr-8 ">
               03
             </span>
@@ -130,12 +145,10 @@ export default function CornBreadInfo() {
           </div>
         </div>
       </div>
-       {/* 제품 카드 영역 */}
-      <div>
-        {/* 제품 카드 */}
-        <CornbreadCard />
+      {/* 제품 카드 영역 */}
+      <div className="ml-5">
+        <ProductCard items={cornBreadItems} />
       </div>
-
     </>
   );
 }
