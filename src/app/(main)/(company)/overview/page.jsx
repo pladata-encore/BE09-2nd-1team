@@ -1,5 +1,10 @@
 import React from "react";
+import OverView from "./Overview";
 
 export default function page() {
-  return <>page</>;
+  return (
+    <div>
+      <OverView />
+    </div>
+  );
 }
