@@ -6,6 +6,9 @@ import menuData from "../header/data/menuData";
 
 export default function Submenu() {
   const pathname = usePathname();
+  // 드롭다운 상태 관리
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
+  const [isItemOpen, setIsItemOpen] = useState(false);
 
   // 현재 페이지에 해당하는 섹션과 현재 아이템 탐색 (startsWith로 매칭)
   let currentSection = null;
@@ -25,10 +28,6 @@ export default function Submenu() {
   // 메뉴에 해당하지 않는 경로인 경우 렌더링 생략
   if (!currentSection || !currentItem) return null;
 
-  // 드롭다운 상태 관리
-  const [isSectionOpen, setIsSectionOpen] = useState(false);
-  const [isItemOpen, setIsItemOpen] = useState(false);
-
   const toggleSection = () => {
     setIsSectionOpen((prev) => {
       const next = !prev;
@@ -46,7 +45,7 @@ export default function Submenu() {
   };
 
   return (
-    <div className="w-full max-w-[1600px] absolute bottom-[32%] px-4">
+    <div className="w-full max-w-[1600px] absolute bottom-[15%] left-[-16px] px-4">
       <div className="relative h-[80px] leading-[90px] mt-[-45px] font-normal z-10 flex items-center">
         {/* Home 아이콘 */}
         <Link
@@ -59,7 +58,7 @@ export default function Submenu() {
         <div
           onClick={toggleSection}
           onMouseLeave={() => setIsSectionOpen(false)}
-          className="bg-[#512d1e] text-white text-[17px] w-[calc(25%-45px)] text-left border-l border-[#735245] relative cursor-pointer select-none"
+          className="bg-[#512d1e] text-white text-[17px] w-[calc(30%-45px)] text-left border-l border-[#735245] relative cursor-pointer select-none"
         >
           <h2 className="flex items-center h-full px-[27px] bg-[url('/images/main/arrow_down.png')] bg-no-repeat bg-[right_20px_center]">
             {currentSection.title}
@@ -89,7 +88,7 @@ export default function Submenu() {
         <div
           onClick={toggleItem}
           onMouseLeave={() => setIsItemOpen(false)}
-          className="bg-[#512d1e] text-white text-[17px] w-[calc(25%-45px)] text-left border-l border-[#735245] relative cursor-pointer select-none"
+          className="bg-[#512d1e] text-white text-[17px] w-[calc(30%-45px)] text-left border-l border-[#735245] relative cursor-pointer select-none"
         >
           <h2 className="flex items-center h-full px-[27px] bg-[url('/images/main/arrow_down.png')] bg-no-repeat bg-[right_20px_center]">
             {currentItem.label}
