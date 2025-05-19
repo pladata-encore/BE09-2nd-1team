@@ -29,7 +29,7 @@ export default function ProductInfo() {
         </div>
       </div>
       {/* 제품 리스트 영역 */}
-      <div className="mt-[80px]">
+      <div className="mx-[30px] mt-[80px]">
         <ProductCard items={products} />
       </div>
     </>

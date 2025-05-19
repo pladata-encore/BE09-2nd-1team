@@ -23,7 +23,7 @@ export default function ProductCard({ items }) {
     <div className="relative pb-[100px] w-full">
       <Swiper
         slidesPerView={4}
-        spaceBetween={70}
+        spaceBetween={200}
         loop
         navigation={{
           nextEl: ".swiper-button-next",
@@ -51,9 +51,7 @@ export default function ProductCard({ items }) {
         <div className="bg-[url('/images/main/arrow_next.png')] swiper-button-next h-[26px] w-[67px]"></div>
       </div>
 
-      {modalOpen && selectedProduct && (
-        <ProductModal product={selectedProduct} onClose={closeModal} />
-      )}
+      {modalOpen && selectedProduct && <ProductModal product={selectedProduct} onClose={closeModal} />}
     </div>
   );
 }

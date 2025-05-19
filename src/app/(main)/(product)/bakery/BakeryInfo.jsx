@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import ProductCard from "../product/ProductCard";
 import products from "../product/product";
 
-
 export default function BakeryInfo() {
   const pathname = usePathname();
 
@@ -27,30 +26,19 @@ export default function BakeryInfo() {
   // 나머지 메뉴 삽입
   const part3 = products.slice(12);
 
-  const BakeryItems = [
-    ...part1,
-    ...part2,
-    ...part3,
-  ];
+  const BakeryItems = [...part1, ...part2, ...part3];
 
   return (
     <>
       {/* 제품 소개 이미지 영역 */}
       <div className="relative w-full h-[580px]">
-        <img
-          src="/images/products/product_main.jpg"
-          alt="베이커리"
-          className="object-cover w-full h-full"
-        />
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          data-aos="fade-up"
-        >
+        <img src="/images/products/product_main.jpg" alt="베이커리" className="object-cover w-full h-full" />
+        <div className="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
           <span className="text-6xl font-bold text-white">베이커리</span>
         </div>
-        </div>
+      </div>
       {/* 제품 리스트 영역 */}
-      <div className="ml-5">
+      <div className="mx-[30px] mt-[80px]">
         <ProductCard items={BakeryItems} />
       </div>
     </>
