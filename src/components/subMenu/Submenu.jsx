@@ -7,6 +7,11 @@ import menuData from "../header/data/menuData";
 export default function Submenu() {
   const pathname = usePathname();
 
+  // /other 경로에서는 표시하지 않음
+  if (pathname === "/other" || pathname.startsWith("/other/")) {
+    return null;
+  }
+
   // 현재 페이지에 해당하는 섹션과 현재 아이템 탐색 (startsWith로 매칭)
   let currentSection = null;
   let currentItem = null;
@@ -46,7 +51,7 @@ export default function Submenu() {
   };
 
   return (
-    <div className="w-full max-w-[1600px] absolute bottom-[32%] px-4">
+    <div className="w-full max-w-[1600px] absolute bottom-[15%] px-4">
       <div className="relative h-[80px] leading-[90px] mt-[-45px] font-normal z-10 flex items-center">
         {/* Home 아이콘 */}
         <Link
