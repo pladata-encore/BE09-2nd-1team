@@ -53,7 +53,7 @@ export default function Section02() {
             </p>
           </li>
           <li data-aos="fade-up" data-aos-delay="600" className="mt-[100px]">
-            <Link href="/intro" className="bg-[#f5b335] rounded-[50px] py-[1em] px-[3em]">
+            <Link href="/greeting" className="bg-[#f5b335] rounded-[50px] py-[1em] px-[3em]">
               ABOUT SAMSONG
             </Link>
           </li>
