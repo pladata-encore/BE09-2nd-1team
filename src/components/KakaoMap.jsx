@@ -131,12 +131,14 @@ const KakaoMap = forwardRef(function KakaoMap(
 
   return (
     <div className="w-full space-y-4">
-      <Script
+     <Script
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=9fd453e56ef6d8617c10653062a578d3&autoload=false"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         onLoad={() => {
-          if (window.kakao?.maps) {
-            window.kakao.maps.load(() => initializeMap());
+          if (window.kakao?.maps && mapRef.current) {
+            window.kakao.maps.load(() => {
+              initializeMap();
+            });
           }
         }}
       />
