@@ -21,7 +21,7 @@ export default function OverView() {
         </div>
       </div>
 
-      <div className="min-h-[1000px]">
+      <div className="min-h-screen">
         {/*중단 텍스트*/}
         <div className="mt-20 mull ml-items-start text-7xl">
           <p className="text-3xl font-bold text-brown-500 text-semibold">
@@ -49,8 +49,8 @@ export default function OverView() {
           </div>
 
           {/* 하단 오른쪽 테이블 */}
-          <div className="ml-10 relative w-1/2 h-[500px] overflow-hidden">
-            <table className="w-full border-collapse ">
+          <div className="relative w-1/2 ml-10 overflow-hidden">
+            <table className="w-full border-collapse">
               <tr className="border-b-4 border-black"></tr>
               <tr>
                 <td className="p-4 text-center border border-black-300">
@@ -83,7 +83,7 @@ export default function OverView() {
                 </td>
               </tr>
               <tr>
-                <td className="p-4 text-center border-gray-300 text-centerborder">
+                <td className="p-4 text-center border border-gray-300">
                   소재지
                 </td>
                 <td className="p-4 text-left border border-gray-300">
