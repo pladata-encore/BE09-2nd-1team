@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 1팀 - 심숭샘송 (BE09-2st-1team)
 
-## Getting Started
+### 프로젝트
 
-First, run the development server:
+- **프로젝트 명** : 삼송빵집 클론 코딩 (프런트엔드 리액트)
+- **진행기간** : 2025.05.15 ~ 05.19 (3일)
+- **팀원/개인** : 5명 (지정호, 유지은, 이채희, 정승원, 김지환)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| 이름 | 카테고리별 역할 (업무) | GitHub 프로필 |
+| --- | --- | --- |
+| 지정호(팀장) | 메인페이지 | https://github.com/hoya-q |
+| 유지은 | 매장안내 | https://github.com/yde222 |
+| 이채희 | 제품소개 | https://github.com/apocalcal |
+| 정승원 | 메인페이지 | https://github.com/dkrio |
+| 김지환 | 회사소개 | https://github.com/FerryLa |
+- 카테고리별 역할 분담
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **클론 코딩한 원본 사이트**
+![s_visual11](https://github.com/user-attachments/assets/3fd8db54-f10e-48d9-abe7-93784a0fcb57)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+**삼송빵집 사이트** : https://www.ssbnc.kr/doc/menu0.php
 
-To learn more about Next.js, take a look at the following resources:
+### 소개
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+본 프로젝트는 유명 베이커리 브랜드 삼송빵집의 웹사이트를 클론하여 제작한 팀 프로젝트입니다. 실제 사이트의 디자인과 UI/UX를 분석하고, 이를 바탕으로 Next.js 기반의 정적/동적 페이지, GSAP을 활용한 애니메이션 효과, Swiper를 이용한 슬라이드 구성, 지도API 추가 등을 중심으로 개발하였습니다. 프론트엔드 핵심 기술 스택을 실무에 맞게 적용하며 팀원 간 협업 경험을 쌓는 데 중점을 두었습니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+또, 실무에서 자주 사용되는 Tailwind CSS를 바탕으로 원본 홈페이지의 애니메이션을 높은 퀄리티로 구현할 수 있었습니다.
 
-## Deploy on Vercel
+### 개발 환경
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **개발** : HTML5, CSS3, JavaScript
+- **프레임워크** : React.js, Next.js
+- **CSS** : Tailwind CSS
+- **라이브러리** : GSAP, Swiper, AOS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **프로젝트 목표**
+
+실무용 프런트엔드 기술을 적용하여 최대한의 클론 웹페이지 구성
+
+## 요구사항 정의서
+
+**요구사항 명세서** : https://www.notion.so/coffit23/1f2a02b1ffb181adb609fc216a70c106
+
+**상세 폴더 구조** : https://www.notion.so/coffit23/1f2a02b1ffb181cc8b88cedd21f1b569
+
+### 💡 구현 페이지 카테고리
+
+✅ 공통
+
+| 구분 | 페이지명 | 경로(URL) | 설명 | 주요 컴포넌트 |
+| --- | --- | --- | --- | --- |
+| 공통 | 레이아웃 | `/` 전역 | Header, Footer 포함 기본 레이아웃 | `layout.jsx`, `Header`, `Footer` |
+| 공통 | 404 페이지 | `/not-found` | 잘못된 URL 접근 시 노출 | `not-found.jsx` |
+| 홈 | 홈 페이지 | `/` | 브랜드, 제품, 매장, 회사소개 진입 링크 제공 | `page.jsx` |
+
+📌 브랜드 스토리 `(brand)`
+
+| 페이지명 | 경로(URL) | 설명 | 주요 컴포넌트 |
+| --- | --- | --- | --- |
+| 브랜드 스토리 | `/story` | 브랜드 설립 배경과 철학 소개 | `StorySection.jsx` |
+| 브랜드 아이덴티티 | `/identity` | 색상, 폰트 등 브랜드 정체성 소개 | `IdentityCard.jsx` |
+| 삼성프렌즈 소개 | `/samsongfriends` | 브랜드 캐릭터 소개 | `FriendItem.jsx` |
+| 브랜드 운영 시스템 | `/system` | 품질관리/생산 시스템 등 브랜드 운영 구조 설명 | `SystemInfo.jsx` |
+
+📌 제품 소개 `(product)`
+
+| 페이지명 | 경로(URL) | 설명 | 주요 컴포넌트 |
+| --- | --- | --- | --- |
+| 제품 소개 메인 | `/product` | 제품 카테고리 진입 링크 제공 | `page.jsx` |
+| 콘브레드 | `/product/corn-bread` | 콘브레드 제품 리스트 | `CornBreadItem.jsx` |
+| 크로켓 | `/product/croquette` | 크로켓 제품 리스트 | `CroquetteCard.jsx` |
+| 제과류 | `/product/bakery` | 다양한 제과류 리스트 | `BakeryList.jsx` |
+| 음료 | `/product/drinks` | 음료 리스트 | `DrinkItem.jsx` |
+
+📌 매장 안내 `(store)`
+
+| 페이지명 | 경로(URL) | 설명 | 주요 컴포넌트 |
+| --- | --- | --- | --- |
+| 삼송1957 연혁 | `/store/samgsong-1957` | 브랜드 연혁 타임라인 | `HistoryTimeline.jsx` |
+| 본사 안내 | `/store/headquarter` | 본사 위치, 연락처, 정보 제공 | `HQMap.jsx` |
+| 기타 매장 안내 | `/store/others` | 기타 지점 리스트 표시 | `BranchList.jsx` |
+
+📌 회사 소개 `(company)`
+
+| 페이지명 | 경로(URL) | 설명 | 주요 컴포넌트 |
+| --- | --- | --- | --- |
+| 대표 인사말 | `/company/greeting` | 창립자 혹은 대표의 인사말 | `GreetingMessage.jsx` |
+| 회사 개요 | `/company/overview` | 회사 연혁, 개요, 규모 등의 요약 | `OverviewCard.jsx` |
+| 경영이념 | `/company/philosophy` | 기업 철학, 비전, 미션 소개 | `PhilosophyBlock.jsx` |
+| 조직도 | `/company/organization` | 회사 조직 구성 및 구조도 | `OrgChart.jsx` |
+| 오시는 길 | `/company/location` | 회사 위치 안내 지도 | `LocationMap.jsx` |
+
+## [WBS]
+
+**상세 테스트케이스** : https://www.notion.so/coffit23/1f5a02b1ffb180efb6d9e863dd07de9d?v=1f5a02b1ffb181d4bc32000ca097b7a6
+
+### 💡 주요 구현 포인트
+
+- ✅ **Next.js App Router 기반의 구조화된 폴더 구성**
+- ✅ **모듈형 컴포넌트 구조로 재사용성과 유지보수성 강화**
+- ✅ **GSAP ScrollTrigger로 부드럽고 시각적인 페이지 전환 효과 구현**
+- ✅ **Swiper로 슬라이드형 제품 소개 구현**
+- ✅ **카카오 지도 API 연동으로 위치 안내 기능 추가**
+
+### ☀️ 데일리 스크럼
+
+| **날짜** | **작업 내용** | **담당자** |
+| --- | --- | --- |
+| 05/15 | 요구사항 분석, 작성 | 지정호, 유지은, 정승원, 이채희, 김지환 |
+| 05/16 | 메인 페이지 구현 - 헤더 작업 | 지정호 |
+|  | 매장 안내 구현 - SAMSONG 1957, 삼송빵집 본점 제작
+지도 API 추가 - 지도 설정 기능 | 유지은 |
+|  | 제품 안내 페이지 구현 - UI작업, JSON 파일
+제품 소개 페이지 구현 - 베이커리, 음료 페이지 제작
+애니메이션 적용 완료 | 이채희 |
+|  | 각 페이지 div 태그 이미지 및 텍스트 수정 | 김지환 |
+|  | 운영시스템 구현, 아이덴티티 기초틀 구현 | 정승원 |
+| 05/19 | 메인페이지 오류사항 수정 및 subMenu 오류 수정 | 지정호 |
+|  | 매장 안내 사이트 세부사항 수정 | 유지은 |
+|  | 전박적인 CSS 점검(세부사항들)
+ 메뉴 안내 사이트의 플립애니메이션 오류 수정 | 이채희 |
+|  | 구현 사이트 오류 수정
+문서MD 작성 총괄 | 김지환 |
+|  | 각 종 사이트 CSS 점검 및 나머지 사이트 구현 | 정승원 |
+
+### 💡 트러블 슈팅
+
+| **🛠** | **과제** | **한계점** | **해결 방안** |
+| --- | --- | --- | --- |
+| 1 | 카카오맵 API 적용 | 본사 위치 대신 바다 3면 표시 | 좌표를 정확히 입력하고 줌 레벨 수정 |
+| 2 | Swiper 애니메이션
+ 적용 | 기존 페이지 CSS와의 충돌 | 기존 레이아웃을 모두 제거하고 Swiper 상에 CSS 추가 |
+| 3 | 네이버 지도 API 연동 | 지도 정보를 불러오는 것에 문제가 있음 |  |
+| 4 | 제품 데이터 매핑 | 데이터 파일 하나로 3가지 페이지를 구현해야 함 → 각 페이지는 표시되는 데이터의 내용 과 순서가 모두 다름 | 각 컴포넌트에서 slice()와 같은 메소드를 이용해 배열을 새로 생성하여 매핑 |
+| 5 | 헤더 - 바디  - 푸터 명확한 영역 구분 | 공통 헤더가 각자 작업한 바디 부분에 가려지거나, 바디 부분이 공통 푸터에 가려지는 문제 | 지나친 div태그 중첩을 없애고, 영역 간 margin을 여유롭게 설정, max-h를 지정하여 헤더/푸터 영역에 바디가 침범하지 않게 함 |
+|  |  |  |  |
+|  |  |  |  |
+
+## 회고
+
+### 지정호
+
+- **주요 역할** :
+**느낀 점** :
+
+### 정승원
+
+- **주요 역할** :
+**느낀 점** :
+
+### 유지은
+
+- **주요 역할** :
+**느낀 점** :
+
+### 이채희
+
+- **주요 역할** :
+**느낀 점** :
+
+### 김지환
+
+- **주요 역할**  :
+**느낀 점** :
+
+### 
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
