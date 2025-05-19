@@ -37,9 +37,8 @@ export default function Greeting() {
 
   return (
     <>
-    
       {/* 상단 이미지 영역 */}
-      <div className="relative w-full h-[600px] overflow-hidden bg-gray-900">
+      <div className="relative w-full h-[580px] overflow-hidden bg-gray-900">
         <img
           src="/images/greeting/s_visual6.jpg"
           alt="인사말"
