@@ -29,11 +29,9 @@ export default function ProductInfo() {
         </div>
       </div>
       {/* 제품 리스트 영역 */}
-      <div className="mt-5">
+      <div className="mt-[80px]">
         <ProductCard items={products} />
       </div>
-      {/* 제품 상세정보 모달 */}
-      {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
     </>
   );
 }
