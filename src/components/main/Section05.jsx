@@ -70,7 +70,7 @@ export default function Section05() {
   }, []);
 
   return (
-    <section className="flex flex-col pb-[100px] min-h-screen ">
+    <section className="flex flex-col pb-[100px] min-h-screen">
       <article className="bg-[url(/images/main/mstore-bg.png)] py-[100px] text-center">
         <div>
           <h2 data-aos="fade-up" data-aos-delay="100" className="text-[60px] font-bold leading-[72px] text-white">
@@ -113,11 +113,11 @@ export default function Section05() {
         <div
           data-aos="flip-up"
           data-aos-delay="400"
-          className="w-[90%] bg-[#afa09a] max-w-[784px] leading-[80px] ml-[20%] mt-[-40px] rounded-[50px] flex"
+          className="w-[90%] h-[80px] bg-[#afa09a] max-w-[784px] leading-[80px] ml-[20%] mt-[-40px] flex rounded-[50px]"
         >
           <input
             type="text"
-            className="h-[80px] w-[calc(100%-80px)] border-none outline-none leading-[80px] text-white text-[20px] px-[30px]"
+            className="w-[calc(100%-160px)]  rounded-[50px] placeholder-[#ddd] placeholder:text-lg bg-[#afa09a] border-none outline-none leading-[80px] text-white text-[20px] px-[30px]"
             placeholder="내 주변 가까운 삼송빵집을 찾아보세요!"
             value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}
@@ -132,7 +132,7 @@ export default function Section05() {
             className="absolute top-0 right-0 cursor-pointer bg-[url(/images/main/msearch.png)] w-[80px] h-[80px]"
           ></button>
         </div>
-        <article className="py-[60px] flex flex-wrap">
+        <article className="py-[60px] flex flex-wrap ml-[30px]">
           <div className="w-[calc(100%-1222px)]">
             <h3
               data-aos="fade-left"
@@ -183,7 +183,7 @@ export default function Section05() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="absolute top-[75%] left-[-31%] flex justify-center cursor-pointer">
+            <div className="absolute top-[75%] left-[-29%] flex justify-center cursor-pointer">
               <div className="bg-[url('/images/main/store_prev.png')] slide-button-prev h-[60px] w-[60px]"></div>
               <div className="bg-[url('/images/main/store_next.png')] slide-button-next h-[60px] w-[60px]"></div>
             </div>

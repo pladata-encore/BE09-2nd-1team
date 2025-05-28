@@ -1,10 +1,14 @@
 import React from "react";
-import OverView from "./Overview";
+import Section01 from "./components/Section01";
+import Section02 from "./components/Section02";
+import Section03 from "./components/Section03";
 
 export default function page() {
   return (
-    <div>
-      <OverView />
+    <div className="w-full min-h-screen overflow-hidden text-base">
+      <Section01 />
+      <Section02 />
+      {/* <Section03 /> */}
     </div>
   );
 }

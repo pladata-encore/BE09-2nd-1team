@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
-@import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom plugins & animations */
+/* @import "tw-animate-css"; */
 
 :root {
   --font-sans: "Pretendard", sans-serif;
@@ -112,6 +115,7 @@ html,
   background-color: var(--background);
   color: var(--foreground);
   /* font-family: var(--font-sans); */
+  font-family: "Pretendard";
 }
 
 @theme inline {
@@ -184,15 +188,6 @@ html,
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 /* globals.css 또는 tailwind가 적용되는 글로벌 CSS 파일에 작성 */

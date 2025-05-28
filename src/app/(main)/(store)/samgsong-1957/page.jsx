@@ -10,7 +10,7 @@ import { Suspense } from "react";
 
 export default function page() {
   return (
-    <main className="flex flex-col">
+    <main className="w-full min-h-screen overflow-hidden text-base">
       <Suspense fallback={<div>로딩 중...</div>}>
         <HeroSection />
         <VideoSection />

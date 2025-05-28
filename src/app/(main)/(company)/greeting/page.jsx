@@ -1,7 +1,12 @@
 import React from "react";
-import Greeting from "./Greeting";
-import NavBar from "./NavBar";
+import Section01 from "./components/Section01";
+import Section02 from "./components/Section02";
 
 export default function page() {
-  return (<NavBar />), (<Greeting />);
+  return (
+    <div className="w-full min-h-screen overflow-hidden text-base">
+      <Section01 />
+      <Section02 />
+    </div>
+  );
 }
